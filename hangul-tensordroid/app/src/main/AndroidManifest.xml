@@ -18,7 +18,8 @@
         <activity android:name=".process.HomeActivity" />
         <activity android:name=".process.SelectActivity" />
         <activity android:name=".process.NumselectActivity" />
-        <activity android:name=".exam.WriteActivity" />
+        <activity android:name=".exam.WriteActivity" >
+        </activity>
         <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
