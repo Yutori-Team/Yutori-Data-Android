@@ -401,13 +401,13 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_write_prev"
             android:layout_width="200dp"
             android:layout_height="70dp"
             android:text="이전"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button3"
+            app:layout_constraintEnd_toStartOf="@+id/btn_write_next"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
@@ -415,7 +415,7 @@
             android:background="@drawable/btn_level_full"/>
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btn_write_next"
             android:layout_width="200dp"
             android:layout_height="70dp"
             android:text="다음"
@@ -423,7 +423,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintStart_toEndOf="@+id/btn_write_prev"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/btn_level_ok"/>
     </android.support.constraint.ConstraintLayout>
