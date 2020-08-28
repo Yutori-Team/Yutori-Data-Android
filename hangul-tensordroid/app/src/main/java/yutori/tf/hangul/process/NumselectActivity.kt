@@ -16,7 +16,7 @@ class NumselectActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_numselect)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-        SharedPreferenceController.instance?.setPrefData("number_of_problem",0)
+        SharedPreferenceController.instance?.setPrefData("number_of_problem",1)
         setClickListener()
     }
 
@@ -52,7 +52,10 @@ class NumselectActivity : AppCompatActivity() {
         if (homeType.equals("PRACTICE")) {
             val intent = Intent(applicationContext, PracticeActivity::class.java)
             startActivity(intent)
-        } //elif homeType exam
+        } else if (homeType.equals("EXAM")) {
+            val intent = Intent(applicationContext, WriteActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }
