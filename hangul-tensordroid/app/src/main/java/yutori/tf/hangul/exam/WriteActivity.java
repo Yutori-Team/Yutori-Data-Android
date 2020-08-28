@@ -1,27 +1,39 @@
 package yutori.tf.hangul.exam;
 
+import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import yutori.tf.hangul.R;
+import yutori.tf.hangul.hangul.HangulClassifier;
 import yutori.tf.hangul.hangul.PaintView;
 
 import static android.speech.tts.TextToSpeech.ERROR;
 
 public class WriteActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String LABEL_FILE = "256-common-hangul.txt";
+    private static final String MODEL_FILE = "optimized_hangul_tensorflow.pb";
+
+    private HangulClassifier classifier;
     private PaintView paintView, paintView2, paintView3, paintView4, paintView5, paintView6, paintView7, paintView8,
             paintView9, paintView10, paintView11, paintView12, paintView13, paintView14, paintView15, paintView16;
-    private TextView resultText;
+    //private EditText resultText;
+    public TextView resultText;
+    private String[] currentTopLabels;
     private ImageButton btnSpeak;
     private TextToSpeech tts;
 
@@ -38,6 +50,7 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
 
         resultText = (TextView) findViewById(R.id.tv_write_result);
 
+        loadModel();
     }
 
     private void initDraw() {
@@ -94,36 +107,51 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
+    public boolean onTouchEvent( MotionEvent event) {
+
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+
+            classify();
+//                    Timer classify_timer = new Timer();
+//                    TimerTask timer_task = new TimerTask() {
+//                        @Override
+//                        public void run() {
+//
+//                            resultText.setText("으왕");
+//                        }
+//                    };
+//                    classify_timer.schedule(timer_task, 2000);
+
+        }
+        return true;
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_write_clear:
                 clear();
+                resultText.setText("");
+
+                paintView.touch = true;
+                paintView2.touch = true;
+                paintView3.touch = true;
+                paintView4.touch = true;
+                paintView5.touch = true;
+                paintView6.touch = true;
+                paintView7.touch = true;
+                paintView8.touch = true;
+                paintView9.touch = true;
+                paintView10.touch = true;
+                paintView11.touch = true;
+                paintView12.touch = true;
+                paintView13.touch = true;
+                paintView14.touch = true;
+                paintView15.touch = true;
+                paintView16.touch = true;
+
                 break;
         }
-    }
-
-    private void playToSpeech() {
-        btnSpeak = (ImageButton) findViewById(R.id.btn_write_speak);
-
-        tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if (status != ERROR) {
-                    tts.setLanguage(Locale.KOREAN);
-                }
-            }
-        });
-        btnSpeak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String text = "이사를 간 물고기";
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
-                } else {
-                    tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-                }
-            }
-        });
     }
 
     private void clear() {
@@ -159,6 +187,30 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
         paintView14.invalidate();
         paintView15.invalidate();
         paintView16.invalidate();
+    }
+
+    private void playToSpeech() {
+        btnSpeak = (ImageButton) findViewById(R.id.btn_write_speak);
+
+        tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != ERROR) {
+                    tts.setLanguage(Locale.KOREAN);
+                }
+            }
+        });
+        btnSpeak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = "이사를 간 물고기";
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
+                } else {
+                    tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+                }
+            }
+        });
     }
 
     @Override
@@ -211,6 +263,184 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
             tts.shutdown();
             tts = null;
         }
+    }
+
+    private void classify() {
+        resultText.setText("");
+
+        float pixels[] = paintView.getPixelData();
+        currentTopLabels = classifier.classify(pixels);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView.touch){
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels2[] = paintView2.getPixelData();
+        currentTopLabels = classifier.classify(pixels2);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView2.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels3[] = paintView3.getPixelData();
+        currentTopLabels = classifier.classify(pixels3);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView3.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels4[] = paintView4.getPixelData();
+        currentTopLabels = classifier.classify(pixels4);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView4.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels5[] = paintView5.getPixelData();
+        currentTopLabels = classifier.classify(pixels5);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView5.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels6[] = paintView6.getPixelData();
+        currentTopLabels = classifier.classify(pixels6);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView6.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels7[] = paintView7.getPixelData();
+        currentTopLabels = classifier.classify(pixels7);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView7.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels8[] = paintView8.getPixelData();
+        currentTopLabels = classifier.classify(pixels8);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView8.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels9[] = paintView9.getPixelData();
+        currentTopLabels = classifier.classify(pixels9);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView9.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels10[] = paintView10.getPixelData();
+        currentTopLabels = classifier.classify(pixels10);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView10.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels11[] = paintView11.getPixelData();
+        currentTopLabels = classifier.classify(pixels11);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView11.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels12[] = paintView12.getPixelData();
+        currentTopLabels = classifier.classify(pixels12);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView12.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels13[] = paintView13.getPixelData();
+        currentTopLabels = classifier.classify(pixels13);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView13.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels14[] = paintView14.getPixelData();
+        currentTopLabels = classifier.classify(pixels14);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView14.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels15[] = paintView15.getPixelData();
+        currentTopLabels = classifier.classify(pixels15);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView15.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+
+        float pixels16[] = paintView16.getPixelData();
+        currentTopLabels = classifier.classify(pixels16);
+        //resultText.setText(currentTopLabels[0]);
+        if(paintView16.touch){
+            //resultText.append(currentTopLabels[0]);
+            resultText.append(" ");
+        }else{
+            resultText.append(currentTopLabels[0]);
+        }
+    }
+
+    private void loadModel() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    classifier = HangulClassifier.create(getAssets(),
+                            MODEL_FILE, LABEL_FILE, PaintView.FEED_DIMENSION,
+                            "input", "keep_prob", "output");
+                } catch (final Exception e) {
+                    throw new RuntimeException("Error loading pre-trained model.", e);
+                }
+            }
+        }).start();
     }
 
 }

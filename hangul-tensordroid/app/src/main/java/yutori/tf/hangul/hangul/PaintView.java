@@ -37,6 +37,8 @@ public class PaintView extends View {
     private ArrayList<PaintPath> PaintPathList = new ArrayList<>();
     private View drawTextView;
 
+    public boolean touch = true;
+
     public PaintView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         path = new Path();
@@ -143,6 +145,8 @@ public class PaintView extends View {
             paint.setColor(Color.BLACK);
             paintPath.setPaint(paint);
             PaintPathList.add(paintPath);
+
+            touch = false;
         }
         invalidate();
         return true;
