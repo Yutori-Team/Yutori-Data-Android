@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_height="match_parent"
+    android:layout_marginVertical="50dp"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="#FFFFFF">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1">
+
+        <ImageButton
+            android:id="@+id/btn_level_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+    </android.support.constraint.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2">
+        <Button
+            android:id="@+id/btn_level_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="70dp"
+            android:layout_marginVertical="20dp"
+            android:text="하"
+            android:textSize="26dp"
+            android:background="@drawable/selector_level" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2">
+        <Button
+            android:id="@+id/btn_level_middle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="70dp"
+            android:layout_marginVertical="20dp"
+            android:text="중"
+            android:textSize="26dp"
+            android:background="@drawable/selector_level"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2">
+        <Button
+            android:id="@+id/btn_level_high"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="70dp"
+            android:layout_marginVertical="20dp"
+            android:text="상"
+            android:textSize="26dp"
+            android:background="@drawable/selector_level"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3">
+        <Button
+            android:id="@+id/btn_level_ok"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="70dp"
+            android:layout_marginVertical="40dp"
+            android:text="확인"
+            android:textSize="26dp"
+            android:background="@drawable/btn_level_ok"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

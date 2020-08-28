@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".hangul.MainActivity"
+    android:orientation="horizontal"
+    android:weightSum="1"
+    android:background="#FFFEF7">
+
+    <RelativeLayout
+        android:id="@+id/paintViewLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5">
+
+        <yutori.tf.hangul.hangul.PaintView
+            android:id="@+id/paintView"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"/>
+
+        <TextView
+            android:id="@+id/drawHere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/Gray"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/buttonClassify"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/paintView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="0dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/check"/>
+
+    </RelativeLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:paddingRight="10dp">
+
+        <LinearLayout
+            android:id="@+id/altLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonClear"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:id="@+id/alt1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="1"
+                android:text=""
+                android:background="@drawable/btn_border_black"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:id="@+id/alt2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="2"
+                android:text=""
+                android:background="@drawable/btn_border_black"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:id="@+id/alt3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="3"
+                android:text=""
+                android:background="@drawable/btn_border_black"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:id="@+id/alt4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="4"
+                android:text=""
+                android:background="@drawable/btn_border_black"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/textLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/altLayout"
+            android:layout_marginTop="50dp">
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".85"
+                android:backgroundTint="@android:color/darker_gray"
+                android:clickable="false"
+                android:cursorVisible="true"
+                android:inputType="textPersonName"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textCursorDrawable="@drawable/color_cursor" />
+
+            <Button
+                android:id="@+id/buttonBackspace"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight=".15"
+                android:background="@drawable/back"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonSpace"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="@+id/textLayout"
+            app:layout_constraintTop_toBottomOf="@+id/textLayout"
+            android:text="space"/>
+
+        <Button
+            android:id="@+id/buttonClear"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="clear"/>
+    </android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>

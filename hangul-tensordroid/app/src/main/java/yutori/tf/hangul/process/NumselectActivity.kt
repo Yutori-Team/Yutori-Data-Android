@@ -1,0 +1,58 @@
+package yutori.tf.hangul.process;
+
+import android.content.Intent
+import android.content.pm.ActivityInfo
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import kotlinx.android.synthetic.main.activity_numselect.*
+import yutori.tf.hangul.R
+import yutori.tf.hangul.db.SharedPreferenceController
+import yutori.tf.hangul.exam.WriteActivity
+import yutori.tf.hangul.practice.PracticeActivity
+
+class NumselectActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_numselect)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        SharedPreferenceController.instance?.setPrefData("number_of_problem",0)
+        setClickListener()
+    }
+
+    private fun setClickListener() {
+        btn_numselect_1.setOnClickListener {
+            SharedPreferenceController.instance?.setPrefData("numTypes", "NUM1")
+            moveActivity()
+        }
+
+        btn_numselect_2.setOnClickListener {
+            SharedPreferenceController.instance?.setPrefData("numTypes", "NUM2")
+            moveActivity()
+        }
+
+        btn_numselect_3.setOnClickListener {
+            SharedPreferenceController.instance?.setPrefData("numTypes", "NUM3")
+            moveActivity()
+        }
+
+        btn_numselect_4.setOnClickListener {
+            SharedPreferenceController.instance?.setPrefData("numTypes", "NUM4")
+            moveActivity()
+        }
+
+        btn_numselect_5.setOnClickListener {
+            SharedPreferenceController.instance?.setPrefData("numTypes", "NUM5")
+            moveActivity()
+        }
+    }
+
+    private fun moveActivity() {
+        val homeType = SharedPreferenceController.instance?.getPrefStringData("homeTypes")
+        if (homeType.equals("PRACTICE")) {
+            val intent = Intent(applicationContext, PracticeActivity::class.java)
+            startActivity(intent)
+        } //elif homeType exam
+
+    }
+}
