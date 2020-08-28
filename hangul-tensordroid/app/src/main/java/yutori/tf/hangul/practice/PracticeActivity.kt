@@ -2,29 +2,29 @@ package yutori.tf.hangul.practice
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.support.v7.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import com.google.gson.JsonObject
-import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_practice.*
 import org.jetbrains.anko.toast
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import yutori.tf.hangul.R
 import yutori.tf.hangul.data.GetSentenceResponse
-import yutori.tf.hangul.data.PostLoginResponse
 import yutori.tf.hangul.db.SharedPreferenceController
-import yutori.tf.hangul.exam.WriteActivity
 import yutori.tf.hangul.network.ApplicationController
 import yutori.tf.hangul.network.NetworkService
-import yutori.tf.hangul.process.HomeActivity
+import java.util.*
 
 class PracticeActivity : AppCompatActivity() {
 
     lateinit var networkService: NetworkService
+
+    lateinit var tts : TextToSpeech
+    lateinit var text: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +36,7 @@ class PracticeActivity : AppCompatActivity() {
     private fun init() {
         networkService = ApplicationController.instance.networkService
         setClickListener()
+        playToSpeech()
         getSentenceResponse()
     }
 
@@ -53,7 +54,7 @@ class PracticeActivity : AppCompatActivity() {
         }
         btn_practice_prev.setOnClickListener {
             val number = SharedPreferenceController.instance?.getPrefIntegerData("number_of_problem")
-            if (number != 0) {
+            if (number != 1) {
                 SharedPreferenceController.instance?.setPrefData("number_of_problem", number!!.minus(1))
                 val intent = Intent(applicationContext, PracticeActivity::class.java)
                 startActivity(intent)
@@ -62,7 +63,38 @@ class PracticeActivity : AppCompatActivity() {
 
     }
 
+    private fun playToSpeech() {
+        tts = TextToSpeech(this, TextToSpeech.OnInitListener {
+            @Override
+            fun onInit(status: Int) {
+                if (status != TextToSpeech.ERROR) {
+                    tts.setLanguage(Locale.KOREAN)
+                }
+            }
+        })
+
+        btn_practice_speak.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
+            } else {
+                tts.speak(text, TextToSpeech.QUEUE_FLUSH, null)
+            }
+        }
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (tts != null) {
+            tts.stop()
+            tts.shutdown()
+//            tts = null
+        }
+    }
+
     private fun getSentenceResponse() {
+        val number = SharedPreferenceController.instance?.getPrefIntegerData("number_of_problem")
+
         val sentenceTypes = SharedPreferenceController.instance?.getPrefStringData("sentenceTypes")
         val levelTypes = SharedPreferenceController.instance?.getPrefStringData("levelTypes")
         val numTypes = SharedPreferenceController.instance?.getPrefStringData("numTypes")
@@ -80,8 +112,8 @@ class PracticeActivity : AppCompatActivity() {
                     when (it.code()) {
                         200 -> {
                             toast("200")
-                            Log.d("ddddddddddddd", response.body()?.resSentenceDtoList.toString())
-
+                            tv_practice_sentence.setText(response.body()?.resSentenceDtoList?.get(number!!.minus(1))?.sentence.toString())
+                            text = response.body()?.resSentenceDtoList?.get(number!!.minus(1))?.sentence.toString()
                         }
                         400 -> {
                             toast("400")
