@@ -200,25 +200,25 @@ class PracticeActivity : AppCompatActivity() {
 
         val getSentenceResponse = networkService.getSentenceResponse(sentenceTypes, levelTypes, numTypes)
 
-        getSentenceResponse.enqueue(object : Callback<GetSentenceResponse> {
-            override fun onFailure(call: Call<GetSentenceResponse>, t: Throwable) {
+        getSentenceResponse.enqueue(object : Callback<List<GetSentenceResponse>> {
+            override fun onFailure(call: Call<List<GetSentenceResponse>>, t: Throwable) {
                 Log.i("Error Practice : ", t.message.toString())
                 toast(t.message.toString())
             }
 
-            override fun onResponse(call: Call<GetSentenceResponse>, response: Response<GetSentenceResponse>) {
+            override fun onResponse(call: Call<List<GetSentenceResponse>>, response: Response<List<GetSentenceResponse>>) {
                 response.let {
                     when (it.code()) {
                         200 -> {
                             toast("200")
-                            tv_practice_sentence.setText(response.body()?.resSentenceDtoList?.get(number!!.minus(1))?.sentence.toString())
-                            speakText = response.body()?.resSentenceDtoList?.get(number!!.minus(1))?.sentence.toString()
+                            tv_practice_sentence.setText(response.body()?.get(number!!.minus(1))?.sentence.toString())
+                            speakText = response.body()?.get(number!!.minus(1))?.sentence.toString()
                         }
                         400 -> {
                             toast("400")
                         }
                         404 -> {
-                            toast("400")
+                            toast("404")
                         }
                         500 -> {
                             toast("500")
