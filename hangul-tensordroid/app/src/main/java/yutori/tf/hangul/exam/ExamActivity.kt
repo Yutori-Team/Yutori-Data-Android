@@ -8,8 +8,7 @@ import android.speech.tts.TextToSpeech
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MotionEvent
-import kotlinx.android.synthetic.main.activity_practice.*
-import kotlinx.android.synthetic.main.activity_write.*
+import kotlinx.android.synthetic.main.activity_exam.*
 import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
@@ -21,12 +20,9 @@ import yutori.tf.hangul.hangul.HangulClassifier
 import yutori.tf.hangul.hangul.PaintView
 import yutori.tf.hangul.network.ApplicationController
 import yutori.tf.hangul.network.NetworkService
-import yutori.tf.hangul.practice.PracticeActivity
-import yutori.tf.hangul.practice.PracticeEndActivity
 import java.util.*
-import kotlin.collections.ArrayList
 
-class WriteActivity : AppCompatActivity() {
+class ExamActivity : AppCompatActivity() {
 
     lateinit var networkService: NetworkService
 
@@ -38,7 +34,7 @@ class WriteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_write)
+        setContentView(R.layout.activity_exam)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
         init()
     }
@@ -56,11 +52,11 @@ class WriteActivity : AppCompatActivity() {
         btn_write_next.setOnClickListener {
             val number = SharedPreferenceController.instance?.getPrefIntegerData("number_of_problem")
             if (number == 10) {
-                val intent = Intent(applicationContext, WriteActivity::class.java)
+                val intent = Intent(applicationContext, ExamActivity::class.java)
                 startActivity(intent)
             } else {
                 SharedPreferenceController.instance?.setPrefData("number_of_problem", number!!.plus(1))
-                val intent = Intent(applicationContext, WriteActivity::class.java)
+                val intent = Intent(applicationContext, ExamActivity::class.java)
                 startActivity(intent)
             }
         }
@@ -69,7 +65,7 @@ class WriteActivity : AppCompatActivity() {
             val number = SharedPreferenceController.instance?.getPrefIntegerData("number_of_problem")
             if (number != 1) {
                 SharedPreferenceController.instance?.setPrefData("number_of_problem", number!!.minus(1))
-                val intent = Intent(applicationContext, WriteActivity::class.java)
+                val intent = Intent(applicationContext, ExamActivity::class.java)
                 startActivity(intent)
             }
         }

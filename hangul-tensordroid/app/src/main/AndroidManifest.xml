@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".exam.WriteActivity"></activity>
+        <activity android:name=".exam.ExamActivity"></activity>
         <activity android:name=".practice.PracticeEndActivity" />
         <activity android:name=".login.JoinActivity" />
         <activity android:name=".practice.PracticeActivity" />

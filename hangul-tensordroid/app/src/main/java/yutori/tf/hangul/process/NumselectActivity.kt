@@ -7,7 +7,7 @@ import android.os.Bundle;
 import kotlinx.android.synthetic.main.activity_numselect.*
 import yutori.tf.hangul.R
 import yutori.tf.hangul.db.SharedPreferenceController
-import yutori.tf.hangul.exam.WriteActivity
+import yutori.tf.hangul.exam.ExamActivity
 import yutori.tf.hangul.practice.PracticeActivity
 
 class NumselectActivity : AppCompatActivity() {
@@ -53,7 +53,7 @@ class NumselectActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, PracticeActivity::class.java)
             startActivity(intent)
         } else if (homeType.equals("EXAM")) {
-            val intent = Intent(applicationContext, WriteActivity::class.java)
+            val intent = Intent(applicationContext, ExamActivity::class.java)
             startActivity(intent)
         }
 
