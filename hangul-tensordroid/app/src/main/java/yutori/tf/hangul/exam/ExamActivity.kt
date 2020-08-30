@@ -52,7 +52,7 @@ class ExamActivity : AppCompatActivity() {
         btn_write_next.setOnClickListener {
             val number = SharedPreferenceController.instance?.getPrefIntegerData("number_of_problem")
             if (number == 10) {
-                val intent = Intent(applicationContext, ExamActivity::class.java)
+                val intent = Intent(applicationContext, CheckActivity::class.java)
                 startActivity(intent)
             } else {
                 SharedPreferenceController.instance?.setPrefData("number_of_problem", number!!.plus(1))
