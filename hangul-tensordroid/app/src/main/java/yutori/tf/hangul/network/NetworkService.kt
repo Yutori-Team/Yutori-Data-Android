@@ -23,5 +23,5 @@ interface NetworkService {
             @Query("sentenceTypes") sentenceTypes: String?,
             @Query("levelTypes") levelTypes: String?,
             @Query("numTypes") numTypes: String?
-    ): Call<GetSentenceResponse>
+    ): Call<List<GetSentenceResponse>>
 }

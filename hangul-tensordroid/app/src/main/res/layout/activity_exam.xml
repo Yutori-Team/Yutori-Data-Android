@@ -5,33 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginHorizontal="120dp">
+    android:paddingHorizontal="80dp"
+    android:background="#FFFEF7">
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="120dp">
+
         <ImageButton
             android:id="@+id/btn_write_speak"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerVertical="true"
-            android:background="@drawable/icon_sound"/>
-    </RelativeLayout>
+            android:layout_marginStart="16dp"
+            android:background="@drawable/icon_sound"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="800dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#000000">
+        android:background="#FFFFFF"
+        android:padding="2dp"
+        android:layout_gravity="center_horizontal">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:layout_marginTop="2dp"
+            android:layout_height="100dp"
             android:weightSum="8">
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_1"
@@ -53,6 +62,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_2"
@@ -73,6 +84,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_3"
@@ -93,6 +106,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_4"
@@ -113,6 +128,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_5"
@@ -133,6 +150,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_6"
@@ -153,6 +172,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_7"
@@ -173,6 +194,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_8"
@@ -194,13 +217,14 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:layout_marginVertical="2dp"
+            android:layout_height="100dp"
             android:weightSum="8">
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_9"
@@ -221,6 +245,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_10"
@@ -241,6 +267,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_11"
@@ -261,6 +289,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_12"
@@ -281,6 +311,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_13"
@@ -301,6 +333,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_14"
@@ -321,6 +355,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_15"
@@ -341,6 +377,8 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_16"
@@ -369,7 +407,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp"
+            android:layout_marginVertical="10dp"
             android:background="@drawable/btn_border_yellow">
             <TextView
                 android:layout_width="wrap_content"
@@ -401,13 +439,13 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_write_prev"
             android:layout_width="200dp"
             android:layout_height="70dp"
             android:text="이전"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button3"
+            app:layout_constraintEnd_toStartOf="@+id/btn_write_next"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
@@ -415,7 +453,7 @@
             android:background="@drawable/btn_level_full"/>
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btn_write_next"
             android:layout_width="200dp"
             android:layout_height="70dp"
             android:text="다음"
@@ -423,7 +461,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintStart_toEndOf="@+id/btn_write_prev"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/btn_level_ok"/>
     </android.support.constraint.ConstraintLayout>

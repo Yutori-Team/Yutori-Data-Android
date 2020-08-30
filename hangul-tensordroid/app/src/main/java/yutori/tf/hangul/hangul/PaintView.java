@@ -30,6 +30,7 @@ public class PaintView extends View {
     private Canvas canvas;
 
     private Matrix transformMat = new Matrix();
+
     private Matrix inverseTransformMat = new Matrix();
 
     private PointF pointF = new PointF();
@@ -45,7 +46,7 @@ public class PaintView extends View {
 
         paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setColor(Color.WHITE);
+        paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeJoin(Paint.Join.ROUND);
         paint.setStrokeCap(Paint.Cap.ROUND);
@@ -55,7 +56,7 @@ public class PaintView extends View {
     public void reset() {
         path.reset();
         if (bitmap != null) {
-            bitmap.eraseColor(Color.WHITE);
+            bitmap.eraseColor(Color.BLACK);
         }
     }
 
@@ -142,7 +143,7 @@ public class PaintView extends View {
             getBitmapCoords(event.getX(), event.getY(), pointF);
             path.lineTo(pointF.x, pointF.y);
             paintPath.setPath(path);
-            paint.setColor(Color.BLACK);
+            paint.setColor(Color.WHITE);
             paintPath.setPaint(paint);
             PaintPathList.add(paintPath);
 
@@ -171,7 +172,7 @@ public class PaintView extends View {
 
     public float[] getPixelData() {
         Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, FEED_DIMENSION,
-                                                         FEED_DIMENSION, false);
+                FEED_DIMENSION, false);
 
         int width = FEED_DIMENSION;
         int height = FEED_DIMENSION;
