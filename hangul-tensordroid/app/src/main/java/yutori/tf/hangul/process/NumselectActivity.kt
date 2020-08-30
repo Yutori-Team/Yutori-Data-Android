@@ -7,6 +7,7 @@ import android.os.Bundle;
 import kotlinx.android.synthetic.main.activity_numselect.*
 import yutori.tf.hangul.R
 import yutori.tf.hangul.db.SharedPreferenceController
+import yutori.tf.hangul.exam.CheckActivity
 import yutori.tf.hangul.exam.ExamActivity
 import yutori.tf.hangul.practice.PracticeActivity
 

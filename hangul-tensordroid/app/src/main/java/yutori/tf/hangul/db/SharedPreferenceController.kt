@@ -16,11 +16,11 @@ class SharedPreferenceController {
         getPref(context)
     }
 
-//    @JvmOverloads
-//    fun getPrefLongData(key: String, defValue: Long = 0): Long {
-//        return pref?.getLong(key, defValue)
-//    }
-//
+    @JvmOverloads
+    fun getPrefLongData(key: String, defValue: Long = 0): Long {
+        return pref!!.getLong(key, defValue)
+    }
+
     @JvmOverloads
     fun getPrefIntegerData(key: String, defValue: Int = 0): Int {
         return pref!!.getInt(key, defValue)
