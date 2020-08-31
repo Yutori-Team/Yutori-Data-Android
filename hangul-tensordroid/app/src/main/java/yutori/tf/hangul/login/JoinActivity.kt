@@ -18,6 +18,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import yutori.tf.hangul.R
 import yutori.tf.hangul.data.PostLoginResponse
+import yutori.tf.hangul.db.SharedPreferenceController
 import yutori.tf.hangul.network.ApplicationController
 import yutori.tf.hangul.network.NetworkService
 import java.util.regex.Pattern
