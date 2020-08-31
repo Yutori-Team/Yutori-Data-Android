@@ -4,6 +4,7 @@ import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.http.*
 import yutori.tf.hangul.data.GetSentenceResponse
+import yutori.tf.hangul.data.GetWrongResponse
 import yutori.tf.hangul.data.PostCheckResponse
 import yutori.tf.hangul.data.PostLoginResponse
 
@@ -30,5 +31,11 @@ interface NetworkService {
     fun postCheckResponse(
             @Body() body: JsonObject
     ): Call<PostCheckResponse>
+
+    @GET("/api/check/wrongSentence")
+    fun getWrongResponse(
+            @Query("userId") userId: Long?,
+            @Query("sentenceId") sentenceId: Long?
+    ): Call<GetWrongResponse>
 
 }

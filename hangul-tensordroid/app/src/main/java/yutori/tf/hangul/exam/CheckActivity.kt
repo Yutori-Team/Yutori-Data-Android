@@ -108,7 +108,7 @@ class CheckActivity : AppCompatActivity() {
                                 iv_check_match1.isSelected = false
                                 btn_check_confirm1.visibility = View.VISIBLE
                                 btn_check_confirm1.setOnClickListener {
-                                    WrongDialog(this@CheckActivity).show()
+                                    WrongDialog(this@CheckActivity, response.body()?.resCheckDtoList?.get(0)?.sentenceId).show()
                                 }
                             }
 
@@ -119,7 +119,7 @@ class CheckActivity : AppCompatActivity() {
                                 iv_check_match2.isSelected = false
                                 btn_check_confirm2.visibility = View.VISIBLE
                                 btn_check_confirm2.setOnClickListener {
-                                    WrongDialog(this@CheckActivity).show()
+                                    WrongDialog(this@CheckActivity, response.body()?.resCheckDtoList?.get(1)?.sentenceId).show()
                                 }
                             }
 
