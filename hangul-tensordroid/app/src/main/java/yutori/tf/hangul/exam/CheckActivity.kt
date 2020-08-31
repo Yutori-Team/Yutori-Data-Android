@@ -39,8 +39,22 @@ class CheckActivity : AppCompatActivity() {
 
     private fun init() {
         networkService = ApplicationController.instance.networkService
+        initCheck()
         setClickListener()
         postCheckResponse()
+    }
+
+    private fun initCheck() {
+        iv_check_match1.isSelected = false
+        iv_check_match2.isSelected = false
+        iv_check_match3.isSelected = false
+        iv_check_match4.isSelected = false
+        iv_check_match5.isSelected = false
+        iv_check_match6.isSelected = false
+        iv_check_match7.isSelected = false
+        iv_check_match8.isSelected = false
+        iv_check_match9.isSelected = false
+        iv_check_match10.isSelected = false
     }
 
     private fun setClickListener() {
@@ -100,11 +114,17 @@ class CheckActivity : AppCompatActivity() {
                             tv_check_answer9.setText(response.body()?.resCheckDtoList?.get(8)?.sentence)
                             tv_check_answer10.setText(response.body()?.resCheckDtoList?.get(9)?.sentence)
 
-//                            if (response.body()?.resCheckDtoList?.get(0)?.match == true){
-//
-//                            } else {
-//
-//                            }
+                            iv_check_match1.isSelected = response.body()?.resCheckDtoList?.get(0)?.match == true
+                            iv_check_match2.isSelected = response.body()?.resCheckDtoList?.get(1)?.match == true
+                            iv_check_match3.isSelected = response.body()?.resCheckDtoList?.get(2)?.match == true
+                            iv_check_match4.isSelected = response.body()?.resCheckDtoList?.get(3)?.match == true
+                            iv_check_match5.isSelected = response.body()?.resCheckDtoList?.get(4)?.match == true
+                            iv_check_match6.isSelected = response.body()?.resCheckDtoList?.get(5)?.match == true
+                            iv_check_match7.isSelected = response.body()?.resCheckDtoList?.get(6)?.match == true
+                            iv_check_match8.isSelected = response.body()?.resCheckDtoList?.get(7)?.match == true
+                            iv_check_match9.isSelected = response.body()?.resCheckDtoList?.get(8)?.match == true
+                            iv_check_match10.isSelected = response.body()?.resCheckDtoList?.get(9)?.match == true
+
                         }
                         400 -> {
                             toast("400")

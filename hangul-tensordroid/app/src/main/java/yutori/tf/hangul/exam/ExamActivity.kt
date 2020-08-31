@@ -53,7 +53,8 @@ class ExamActivity : AppCompatActivity() {
             val number = SharedPreferenceController.instance?.getPrefIntegerData("number_of_problem")
             val key = "answer"+number.toString()
 //            SharedPreferenceController.instance?.setPrefData(key, tv_write_result.text.toString())
-            SharedPreferenceController.instance?.setPrefData(key, "페이지"+number.toString())
+//            SharedPreferenceController.instance?.setPrefData(key, "페이지"+number.toString())
+            SharedPreferenceController.instance?.setPrefData(key, "나")
 
             if (number == 10) {
                 val intent = Intent(applicationContext, CheckActivity::class.java)

@@ -67,7 +67,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/btn_level_ok" />
+                android:background="@drawable/selector_check" />
 
             <TextView
                 android:id="@+id/tv_check_answer1"
@@ -107,7 +107,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/btn_level_ok" />
+                android:background="@drawable/selector_check" />
 
             <TextView
                 android:id="@+id/tv_check_answer2"
@@ -147,7 +147,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/btn_level_ok" />
+                android:background="@drawable/selector_check" />
 
             <TextView
                 android:id="@+id/tv_check_answer3"
@@ -187,7 +187,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/btn_level_ok" />
+                android:background="@drawable/selector_check"/>
 
             <TextView
                 android:id="@+id/tv_check_answer4"
@@ -227,7 +227,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/btn_level_ok" />
+                android:background="@drawable/selector_check" />
 
             <TextView
                 android:id="@+id/tv_check_answer5"
@@ -267,7 +267,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/btn_level_ok" />
+                android:background="@drawable/selector_check" />
 
             <TextView
                 android:id="@+id/tv_check_answer6"
@@ -307,7 +307,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/btn_level_ok" />
+                android:background="@drawable/selector_check" />
 
             <TextView
                 android:id="@+id/tv_check_answer7"
@@ -347,7 +347,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/btn_level_ok" />
+                android:background="@drawable/selector_check" />
 
             <TextView
                 android:id="@+id/tv_check_answer8"
@@ -387,7 +387,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/btn_level_ok" />
+                android:background="@drawable/selector_check"/>
 
             <TextView
                 android:id="@+id/tv_check_answer9"
@@ -427,7 +427,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/btn_level_ok" />
+                android:background="@drawable/selector_check" />
 
             <TextView
                 android:id="@+id/tv_check_answer10"
