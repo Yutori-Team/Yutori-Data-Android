@@ -129,6 +129,9 @@ class CheckActivity : AppCompatActivity() {
                             } else {
                                 iv_check_match3.isSelected = false
                                 btn_check_confirm3.visibility = View.VISIBLE
+                                btn_check_confirm3.setOnClickListener {
+                                    WrongDialog(this@CheckActivity, response.body()?.resCheckDtoList?.get(2)?.sentenceId).show()
+                                }
                             }
 
                             if (response.body()?.resCheckDtoList?.get(3)?.match == true) {
@@ -137,6 +140,9 @@ class CheckActivity : AppCompatActivity() {
                             } else {
                                 iv_check_match4.isSelected = false
                                 btn_check_confirm4.visibility = View.VISIBLE
+                                btn_check_confirm4.setOnClickListener {
+                                    WrongDialog(this@CheckActivity, response.body()?.resCheckDtoList?.get(3)?.sentenceId).show()
+                                }
                             }
 
                             if (response.body()?.resCheckDtoList?.get(4)?.match == true) {
@@ -145,6 +151,9 @@ class CheckActivity : AppCompatActivity() {
                             } else {
                                 iv_check_match5.isSelected = false
                                 btn_check_confirm5.visibility = View.VISIBLE
+                                btn_check_confirm5.setOnClickListener {
+                                    WrongDialog(this@CheckActivity, response.body()?.resCheckDtoList?.get(4)?.sentenceId).show()
+                                }
                             }
 
                             if (response.body()?.resCheckDtoList?.get(5)?.match == true) {
@@ -153,6 +162,9 @@ class CheckActivity : AppCompatActivity() {
                             } else {
                                 iv_check_match6.isSelected = false
                                 btn_check_confirm6.visibility = View.VISIBLE
+                                btn_check_confirm6.setOnClickListener {
+                                    WrongDialog(this@CheckActivity, response.body()?.resCheckDtoList?.get(5)?.sentenceId).show()
+                                }
                             }
 
                             if (response.body()?.resCheckDtoList?.get(6)?.match == true) {
@@ -161,6 +173,9 @@ class CheckActivity : AppCompatActivity() {
                             } else {
                                 iv_check_match7.isSelected = false
                                 btn_check_confirm7.visibility = View.VISIBLE
+                                btn_check_confirm7.setOnClickListener {
+                                    WrongDialog(this@CheckActivity, response.body()?.resCheckDtoList?.get(6)?.sentenceId).show()
+                                }
                             }
 
                             if (response.body()?.resCheckDtoList?.get(7)?.match == true) {
@@ -169,6 +184,9 @@ class CheckActivity : AppCompatActivity() {
                             } else {
                                 iv_check_match8.isSelected = false
                                 btn_check_confirm8.visibility = View.VISIBLE
+                                btn_check_confirm8.setOnClickListener {
+                                    WrongDialog(this@CheckActivity, response.body()?.resCheckDtoList?.get(7)?.sentenceId).show()
+                                }
                             }
 
                             if (response.body()?.resCheckDtoList?.get(8)?.match == true) {
@@ -177,6 +195,9 @@ class CheckActivity : AppCompatActivity() {
                             } else {
                                 iv_check_match9.isSelected = false
                                 btn_check_confirm9.visibility = View.VISIBLE
+                                btn_check_confirm9.setOnClickListener {
+                                    WrongDialog(this@CheckActivity, response.body()?.resCheckDtoList?.get(8)?.sentenceId).show()
+                                }
                             }
 
                             if (response.body()?.resCheckDtoList?.get(9)?.match == true) {
@@ -185,6 +206,9 @@ class CheckActivity : AppCompatActivity() {
                             } else {
                                 iv_check_match10.isSelected = false
                                 btn_check_confirm10.visibility = View.VISIBLE
+                                btn_check_confirm10.setOnClickListener {
+                                    WrongDialog(this@CheckActivity, response.body()?.resCheckDtoList?.get(9)?.sentenceId).show()
+                                }
                             }
 
 
