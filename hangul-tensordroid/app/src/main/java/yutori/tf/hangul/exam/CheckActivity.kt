@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
@@ -39,22 +40,8 @@ class CheckActivity : AppCompatActivity() {
 
     private fun init() {
         networkService = ApplicationController.instance.networkService
-        initCheck()
         setClickListener()
         postCheckResponse()
-    }
-
-    private fun initCheck() {
-        iv_check_match1.isSelected = false
-        iv_check_match2.isSelected = false
-        iv_check_match3.isSelected = false
-        iv_check_match4.isSelected = false
-        iv_check_match5.isSelected = false
-        iv_check_match6.isSelected = false
-        iv_check_match7.isSelected = false
-        iv_check_match8.isSelected = false
-        iv_check_match9.isSelected = false
-        iv_check_match10.isSelected = false
     }
 
     private fun setClickListener() {
@@ -114,16 +101,92 @@ class CheckActivity : AppCompatActivity() {
                             tv_check_answer9.setText(response.body()?.resCheckDtoList?.get(8)?.sentence)
                             tv_check_answer10.setText(response.body()?.resCheckDtoList?.get(9)?.sentence)
 
-                            iv_check_match1.isSelected = response.body()?.resCheckDtoList?.get(0)?.match == true
-                            iv_check_match2.isSelected = response.body()?.resCheckDtoList?.get(1)?.match == true
-                            iv_check_match3.isSelected = response.body()?.resCheckDtoList?.get(2)?.match == true
-                            iv_check_match4.isSelected = response.body()?.resCheckDtoList?.get(3)?.match == true
-                            iv_check_match5.isSelected = response.body()?.resCheckDtoList?.get(4)?.match == true
-                            iv_check_match6.isSelected = response.body()?.resCheckDtoList?.get(5)?.match == true
-                            iv_check_match7.isSelected = response.body()?.resCheckDtoList?.get(6)?.match == true
-                            iv_check_match8.isSelected = response.body()?.resCheckDtoList?.get(7)?.match == true
-                            iv_check_match9.isSelected = response.body()?.resCheckDtoList?.get(8)?.match == true
-                            iv_check_match10.isSelected = response.body()?.resCheckDtoList?.get(9)?.match == true
+                            if (response.body()?.resCheckDtoList?.get(0)?.match == true) {
+                                iv_check_match1.isSelected = true
+                                btn_check_confirm1.visibility = View.INVISIBLE
+                            } else {
+                                iv_check_match1.isSelected = false
+                                btn_check_confirm1.visibility = View.VISIBLE
+                                btn_check_confirm1.setOnClickListener {
+                                    WrongDialog(this@CheckActivity).show()
+                                }
+                            }
+
+                            if (response.body()?.resCheckDtoList?.get(1)?.match == true) {
+                                iv_check_match2.isSelected = true
+                                btn_check_confirm2.visibility = View.INVISIBLE
+                            } else {
+                                iv_check_match2.isSelected = false
+                                btn_check_confirm2.visibility = View.VISIBLE
+                                btn_check_confirm2.setOnClickListener {
+                                    WrongDialog(this@CheckActivity).show()
+                                }
+                            }
+
+                            if (response.body()?.resCheckDtoList?.get(2)?.match == true) {
+                                iv_check_match3.isSelected = true
+                                btn_check_confirm3.visibility = View.INVISIBLE
+                            } else {
+                                iv_check_match3.isSelected = false
+                                btn_check_confirm3.visibility = View.VISIBLE
+                            }
+
+                            if (response.body()?.resCheckDtoList?.get(3)?.match == true) {
+                                iv_check_match4.isSelected = true
+                                btn_check_confirm4.visibility = View.INVISIBLE
+                            } else {
+                                iv_check_match4.isSelected = false
+                                btn_check_confirm4.visibility = View.VISIBLE
+                            }
+
+                            if (response.body()?.resCheckDtoList?.get(4)?.match == true) {
+                                iv_check_match5.isSelected = true
+                                btn_check_confirm5.visibility = View.INVISIBLE
+                            } else {
+                                iv_check_match5.isSelected = false
+                                btn_check_confirm5.visibility = View.VISIBLE
+                            }
+
+                            if (response.body()?.resCheckDtoList?.get(5)?.match == true) {
+                                iv_check_match6.isSelected = true
+                                btn_check_confirm6.visibility = View.INVISIBLE
+                            } else {
+                                iv_check_match6.isSelected = false
+                                btn_check_confirm6.visibility = View.VISIBLE
+                            }
+
+                            if (response.body()?.resCheckDtoList?.get(6)?.match == true) {
+                                iv_check_match7.isSelected = true
+                                btn_check_confirm7.visibility = View.INVISIBLE
+                            } else {
+                                iv_check_match7.isSelected = false
+                                btn_check_confirm7.visibility = View.VISIBLE
+                            }
+
+                            if (response.body()?.resCheckDtoList?.get(7)?.match == true) {
+                                iv_check_match8.isSelected = true
+                                btn_check_confirm8.visibility = View.INVISIBLE
+                            } else {
+                                iv_check_match8.isSelected = false
+                                btn_check_confirm8.visibility = View.VISIBLE
+                            }
+
+                            if (response.body()?.resCheckDtoList?.get(8)?.match == true) {
+                                iv_check_match9.isSelected = true
+                                btn_check_confirm9.visibility = View.INVISIBLE
+                            } else {
+                                iv_check_match9.isSelected = false
+                                btn_check_confirm9.visibility = View.VISIBLE
+                            }
+
+                            if (response.body()?.resCheckDtoList?.get(9)?.match == true) {
+                                iv_check_match10.isSelected = true
+                                btn_check_confirm10.visibility = View.INVISIBLE
+                            } else {
+                                iv_check_match10.isSelected = false
+                                btn_check_confirm10.visibility = View.VISIBLE
+                            }
+
 
                         }
                         400 -> {

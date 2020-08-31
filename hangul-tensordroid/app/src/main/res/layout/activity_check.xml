@@ -92,6 +92,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match1"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_check_confirm1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="답 확인"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer1"
+                app:layout_constraintStart_toEndOf="@+id/tv_check_answer1"
+                app:layout_constraintTop_toTopOf="@+id/tv_check_answer1"
+                android:background="@drawable/btn_level_full"/>
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
@@ -132,6 +143,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match2"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_check_confirm2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/btn_level_full"
+                android:text="답 확인"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer2"
+                app:layout_constraintStart_toEndOf="@+id/tv_check_answer2"
+                app:layout_constraintTop_toTopOf="@+id/tv_check_answer2" />
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
@@ -172,6 +194,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match3"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_check_confirm3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/btn_level_full"
+                android:text="답 확인"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer3"
+                app:layout_constraintStart_toEndOf="@+id/tv_check_answer3"
+                app:layout_constraintTop_toTopOf="@+id/tv_check_answer3" />
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
@@ -179,26 +212,25 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
+            <Button
+                android:id="@+id/btn_check_confirm4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/btn_level_full"
+                android:text="답 확인"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer4"
+                app:layout_constraintStart_toEndOf="@+id/tv_check_answer4"
+                app:layout_constraintTop_toTopOf="@+id/tv_check_answer4" />
+
             <ImageView
                 android:id="@+id/iv_check_match4"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="100dp"
+                android:background="@drawable/selector_check"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/selector_check"/>
-
-            <TextView
-                android:id="@+id/tv_check_answer4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="TextView"
-                android:textColor="#000000"
-                android:textSize="24dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_check_num4"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -211,6 +243,18 @@
                 android:textSize="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_check_answer4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="TextView"
+                android:textColor="#000000"
+                android:textSize="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_check_num4"
                 app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
 
@@ -252,6 +296,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match5"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_check_confirm5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/btn_level_full"
+                android:text="답 확인"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer5"
+                app:layout_constraintStart_toEndOf="@+id/tv_check_answer5"
+                app:layout_constraintTop_toTopOf="@+id/tv_check_answer5" />
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
@@ -292,6 +347,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match6"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_check_confirm6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/btn_level_full"
+                android:text="답 확인"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer6"
+                app:layout_constraintStart_toEndOf="@+id/tv_check_answer6"
+                app:layout_constraintTop_toTopOf="@+id/tv_check_answer6" />
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
@@ -332,6 +398,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match7"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_check_confirm7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/btn_level_full"
+                android:text="답 확인"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer7"
+                app:layout_constraintStart_toEndOf="@+id/tv_check_answer7"
+                app:layout_constraintTop_toTopOf="@+id/tv_check_answer7" />
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
@@ -372,6 +449,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match8"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_check_confirm8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/btn_level_full"
+                android:text="답 확인"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer8"
+                app:layout_constraintStart_toEndOf="@+id/tv_check_answer8"
+                app:layout_constraintTop_toTopOf="@+id/tv_check_answer8" />
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
@@ -412,6 +500,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match9"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_check_confirm9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/btn_level_full"
+                android:text="답 확인"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer9"
+                app:layout_constraintStart_toEndOf="@+id/tv_check_answer9"
+                app:layout_constraintTop_toTopOf="@+id/tv_check_answer9" />
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
@@ -452,6 +551,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match10"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_check_confirm10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/btn_level_full"
+                android:text="답 확인"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer10"
+                app:layout_constraintStart_toEndOf="@+id/tv_check_answer10"
+                app:layout_constraintTop_toTopOf="@+id/tv_check_answer10" />
         </android.support.constraint.ConstraintLayout>
 
 
