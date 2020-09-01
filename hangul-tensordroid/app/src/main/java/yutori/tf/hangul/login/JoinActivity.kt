@@ -131,13 +131,13 @@ class JoinActivity : AppCompatActivity() {
 
         val postJoinResponse = networkService.postJoinResponse(gsonObject)
 
-        postJoinResponse.enqueue(object : Callback<PostLoginResponse> {
-            override fun onFailure(call: Call<PostLoginResponse>, t: Throwable) {
+        postJoinResponse.enqueue(object : Callback<Void> {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
                 Log.d("Error JoinActivity : ", t.message.toString())
                 toast(t.message.toString())
             }
 
-            override fun onResponse(call: Call<PostLoginResponse>, response: Response<PostLoginResponse>) {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
 
                 response.let {
                     when (it.code()) {
@@ -150,7 +150,6 @@ class JoinActivity : AppCompatActivity() {
                         }
                         500 -> {
                             toast("500")
-
                         }
                         else -> {
                             toast("else")

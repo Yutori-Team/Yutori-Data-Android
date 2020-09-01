@@ -61,6 +61,8 @@ class CheckActivity : AppCompatActivity() {
     }
 
     private fun postCheckResponse() {
+        val authorization = SharedPreferenceController.instance?.getPrefStringData("authorization")
+
         val sentenceTypes = SharedPreferenceController.instance?.getPrefStringData("sentenceTypes")
         val levelTypes = SharedPreferenceController.instance?.getPrefStringData("levelTypes")
         val numTypes = SharedPreferenceController.instance?.getPrefStringData("numTypes")
@@ -75,7 +77,7 @@ class CheckActivity : AppCompatActivity() {
         jsonObject.put("reqCheckDtoList", jsonArray)
 
         val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
-        val postCheckResponse = networkService.postCheckResponse(gsonObject)
+        val postCheckResponse = networkService.postCheckResponse(authorization, gsonObject)
 
         postCheckResponse.enqueue(object : Callback<PostCheckResponse> {
             override fun onFailure(call: Call<PostCheckResponse>, t: Throwable) {
