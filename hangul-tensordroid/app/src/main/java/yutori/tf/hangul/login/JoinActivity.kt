@@ -118,14 +118,14 @@ class JoinActivity : AppCompatActivity() {
     }
 
     private fun postJoinResponse() {
-        val input_id = et_join_id.text.toString().trim()
-        val input_name = et_join_name.text.toString().trim()
-        val input_pw = et_join_pw.text.toString().trim()
+        val inputId = et_join_id.text.toString().trim()
+        val inputName = et_join_name.text.toString().trim()
+        val inputPw = et_join_pw.text.toString().trim()
 
         var jsonObject = JSONObject()
-        jsonObject.put("id", input_id)
-        jsonObject.put("name", input_name)
-        jsonObject.put("pw", input_pw)
+        jsonObject.put("id", inputId)
+        jsonObject.put("name", inputName)
+        jsonObject.put("pw", inputPw)
 
         val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
 

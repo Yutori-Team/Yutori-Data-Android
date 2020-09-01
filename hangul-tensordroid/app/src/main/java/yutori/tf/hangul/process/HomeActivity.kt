@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 import org.jetbrains.anko.toast
 import yutori.tf.hangul.R
 import yutori.tf.hangul.db.SharedPreferenceController
+import yutori.tf.hangul.mypage.MypageActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -29,6 +30,10 @@ class HomeActivity : AppCompatActivity() {
         btn_home_exam.setOnClickListener {
             SharedPreferenceController.instance?.setPrefData("homeTypes", "EXAM")
             val intent = Intent(applicationContext, SelectActivity::class.java)
+            startActivity(intent)
+        }
+        btn_home_mypage.setOnClickListener {
+            val intent = Intent(applicationContext, MypageActivity::class.java)
             startActivity(intent)
         }
     }
