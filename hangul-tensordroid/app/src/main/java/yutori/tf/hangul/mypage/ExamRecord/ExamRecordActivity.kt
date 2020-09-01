@@ -44,6 +44,5 @@ class ExamRecordActivity : AppCompatActivity() {
         examRecordRecyclerViewAdapter = ExamRecordRecyclerViewAdapter(this, dataList)
         rv_exam_record.adapter = examRecordRecyclerViewAdapter
         rv_exam_record.layoutManager = LinearLayoutManager(this)
-
     }
 }

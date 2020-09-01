@@ -3,13 +3,11 @@ package yutori.tf.hangul.network;
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.http.*
-import yutori.tf.hangul.data.GetSentenceResponse
-import yutori.tf.hangul.data.GetWrongResponse
-import yutori.tf.hangul.data.PostCheckResponse
-import yutori.tf.hangul.data.PostLoginResponse
+import yutori.tf.hangul.data.*
 
 interface NetworkService {
 
+    //########### Member Controller ###########
     @POST("/api/user/signup")
     fun postJoinResponse(
             @Body() body: JsonObject
@@ -20,6 +18,8 @@ interface NetworkService {
             @Body() body: JsonObject
     ): Call<PostLoginResponse>
 
+
+    //########### Sentence Controller ###########
     @GET("/api/check/getSentence")
     fun getSentenceResponse(
             @Header("authorization") authorization: String?,
@@ -40,5 +40,19 @@ interface NetworkService {
             @Query("userId") userId: Long?,
             @Query("sentenceId") sentenceId: Long?
     ): Call<GetWrongResponse>
+
+    @POST("/api/check/savePractice")
+    fun postPracticeResponse(
+            @Header("authorization") authorization: String?,
+            @Body() body: JsonObject
+    ): Call<Void>
+
+
+    //########### Mypage Controller ###########
+    @GET("/api/mypage/getProfile")
+    fun getProfileResponse(
+            @Header("authorization") authorization: String?,
+            @Query("userId") userId: Long?
+    ): Call<GetProfileResponse>
 
 }
