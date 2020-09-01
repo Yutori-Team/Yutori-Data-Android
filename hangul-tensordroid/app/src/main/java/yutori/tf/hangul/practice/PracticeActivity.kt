@@ -7,8 +7,11 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_practice.*
 import org.jetbrains.anko.toast
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,6 +28,11 @@ class PracticeActivity : AppCompatActivity() {
 
     lateinit var tts : TextToSpeech
     lateinit var speakText: String
+
+    val authorization = SharedPreferenceController.instance?.getPrefStringData("authorization")
+    val sentenceTypes = SharedPreferenceController.instance?.getPrefStringData("sentenceTypes")
+    val levelTypes = SharedPreferenceController.instance?.getPrefStringData("levelTypes")
+    val numTypes = SharedPreferenceController.instance?.getPrefStringData("numTypes")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +53,7 @@ class PracticeActivity : AppCompatActivity() {
         btn_practice_next.setOnClickListener {
             val number = SharedPreferenceController.instance?.getPrefIntegerData("number_of_problem")
             if(number == 10) {
+                postPracticeResponse()
                 val intent = Intent(applicationContext, PracticeEndActivity::class.java)
                 startActivity(intent)
             }else {
@@ -194,11 +203,6 @@ class PracticeActivity : AppCompatActivity() {
     private fun getSentenceResponse() {
         val number = SharedPreferenceController.instance?.getPrefIntegerData("number_of_problem")
 
-        val authorization = SharedPreferenceController.instance?.getPrefStringData("authorization")
-        val sentenceTypes = SharedPreferenceController.instance?.getPrefStringData("sentenceTypes")
-        val levelTypes = SharedPreferenceController.instance?.getPrefStringData("levelTypes")
-        val numTypes = SharedPreferenceController.instance?.getPrefStringData("numTypes")
-
         val getSentenceResponse = networkService.getSentenceResponse(authorization, sentenceTypes, levelTypes, numTypes)
 
         getSentenceResponse.enqueue(object : Callback<List<GetSentenceResponse>> {
@@ -235,4 +239,49 @@ class PracticeActivity : AppCompatActivity() {
         })
 
     }
+
+    private fun postPracticeResponse() {
+        val userId = SharedPreferenceController.instance?.getPrefLongData("userId")
+
+        val jsonObject = JSONObject()
+        jsonObject.put("sentenceTypes", sentenceTypes)
+        jsonObject.put("levelTypes", levelTypes)
+        jsonObject.put("numTypes", numTypes)
+        jsonObject.put("userId", userId)
+
+        val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
+        val postPracticeResponse = networkService.postPracticeResponse(authorization, gsonObject)
+
+        postPracticeResponse.enqueue(object : Callback<Void> {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Log.i("Error PracticeRecord : ", t.message.toString())
+                toast(t.message.toString())
+            }
+
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                response.let {
+                    when (it.code()) {
+                        200 -> {
+                            toast("200")
+                        }
+                        400 -> {
+                            toast("400")
+                        }
+                        404 -> {
+                            toast("404")
+                        }
+                        500 -> {
+                            toast("500")
+                        }
+                        else -> {
+                            toast("else")
+                        }
+                    }
+                }
+            }
+
+
+        })
+    }
+
 }
