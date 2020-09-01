@@ -10,7 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".exam.CheckActivity"></activity>
+        <activity android:name=".mypage.PracticeRecord.PracticeRecordActivity"></activity>
+        <activity android:name=".mypage.ExamRecord.ExamRecordActivity" />
+        <activity android:name=".mypage.MypageActivity" />
+        <activity android:name=".exam.CheckActivity" />
         <activity android:name=".exam.ExamActivity" />
         <activity android:name=".practice.PracticeEndActivity" />
         <activity android:name=".login.JoinActivity" />
