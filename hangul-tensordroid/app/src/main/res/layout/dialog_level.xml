@@ -38,7 +38,7 @@
             android:layout_marginHorizontal="70dp"
             android:layout_marginVertical="20dp"
             android:text="하"
-            android:textSize="26dp"
+            android:textSize="25dp"
             android:background="@drawable/selector_level" />
     </RelativeLayout>
 
@@ -53,7 +53,7 @@
             android:layout_marginHorizontal="70dp"
             android:layout_marginVertical="20dp"
             android:text="중"
-            android:textSize="26dp"
+            android:textSize="25dp"
             android:background="@drawable/selector_level"/>
     </RelativeLayout>
 
@@ -68,7 +68,7 @@
             android:layout_marginHorizontal="70dp"
             android:layout_marginVertical="20dp"
             android:text="상"
-            android:textSize="26dp"
+            android:textSize="25dp"
             android:background="@drawable/selector_level"/>
     </RelativeLayout>
 
@@ -83,7 +83,7 @@
             android:layout_marginHorizontal="70dp"
             android:layout_marginVertical="40dp"
             android:text="확인"
-            android:textSize="26dp"
+            android:textSize="25dp"
             android:background="@drawable/btn_level_ok"/>
 
     </RelativeLayout>

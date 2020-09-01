@@ -36,9 +36,10 @@ class WrongDialog(ctx: Context?, var sentenceId: Long?) : Dialog(ctx) {
     }
 
     private fun getWrongResponse() {
+        val authorization = SharedPreferenceController.instance?.getPrefStringData("authorization")
         val userId = SharedPreferenceController.instance?.getPrefLongData("userId")
 
-        val postJoinResponse = networkService.getWrongResponse(userId, sentenceId)
+        val postJoinResponse = networkService.getWrongResponse(authorization, userId, sentenceId)
 
         postJoinResponse.enqueue(object : Callback<GetWrongResponse> {
             override fun onFailure(call: Call<GetWrongResponse>, t: Throwable) {

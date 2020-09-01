@@ -55,12 +55,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun postLoginResponse() {
-        val input_id = et_login_id.text.toString().trim()
-        val input_pw = et_login_pw.text.toString().trim()
+        val inputId = et_login_id.text.toString().trim()
+        val inputPw = et_login_pw.text.toString().trim()
 
         var jsonObject = JSONObject()
-        jsonObject.put("userId", input_id)
-        jsonObject.put("userPw", input_pw)
+        jsonObject.put("userId", inputId)
+        jsonObject.put("userPw", inputPw)
 
         val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
 
@@ -79,6 +79,7 @@ class LoginActivity : AppCompatActivity() {
                         200 -> {
                             toast("200 로그인 성공")
                             SharedPreferenceController.instance?.setPrefData("userId", response.body()!!.id)
+                            SharedPreferenceController.instance?.setPrefData("authorization", response.body()!!.token)
                             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
                         }
                         400 -> {

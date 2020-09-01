@@ -194,11 +194,12 @@ class PracticeActivity : AppCompatActivity() {
     private fun getSentenceResponse() {
         val number = SharedPreferenceController.instance?.getPrefIntegerData("number_of_problem")
 
+        val authorization = SharedPreferenceController.instance?.getPrefStringData("authorization")
         val sentenceTypes = SharedPreferenceController.instance?.getPrefStringData("sentenceTypes")
         val levelTypes = SharedPreferenceController.instance?.getPrefStringData("levelTypes")
         val numTypes = SharedPreferenceController.instance?.getPrefStringData("numTypes")
 
-        val getSentenceResponse = networkService.getSentenceResponse(sentenceTypes, levelTypes, numTypes)
+        val getSentenceResponse = networkService.getSentenceResponse(authorization, sentenceTypes, levelTypes, numTypes)
 
         getSentenceResponse.enqueue(object : Callback<List<GetSentenceResponse>> {
             override fun onFailure(call: Call<List<GetSentenceResponse>>, t: Throwable) {
