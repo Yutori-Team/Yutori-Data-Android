@@ -16,7 +16,7 @@ class ExamRecordRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<Ge
     : RecyclerView.Adapter<ExamRecordRecyclerViewAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val view : View = LayoutInflater.from(ctx).inflate(R.layout.rv_exam_record, parent, false)
+        val view: View = LayoutInflater.from(ctx).inflate(R.layout.rv_exam_record, parent, false)
         return Holder(view)
     }
 
@@ -24,14 +24,30 @@ class ExamRecordRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<Ge
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        val datetime:LocalDateTime = LocalDateTime.parse((dataList[position].time))
+        val datetime: LocalDateTime = LocalDateTime.parse((dataList[position].time))
         val time = datetime.toLocalTime().hour.toString() + ":" + datetime.toLocalTime().minute.toString()
+
+        when (dataList[position].sentenceTypes) {
+            "SENTENCE" -> holder.sentenceType.text = "문장"
+            "SING" -> holder.sentenceType.text = "노래"
+        }
+
+        when (dataList[position].levelTypes) {
+            "TOP" -> holder.levelType.text = "상"
+            "MIDDLE" -> holder.levelType.text = "중"
+            "LOW" -> holder.levelType.text = "하"
+        }
+
+        when (dataList[position].numTypes) {
+            "NUM1" -> holder.numType.text = "1"
+            "NUM2" -> holder.numType.text = "2"
+            "NUM3" -> holder.numType.text = "3"
+            "NUM4" -> holder.numType.text = "4"
+            "NUM5" -> holder.numType.text = "5"
+        }
 
         holder.date.text = datetime.toLocalDate().toString()
         holder.time.text = time
-        holder.sentenceType.text = dataList[position].sentenceTypes
-        holder.levelType.text = dataList[position].levelTypes
-        holder.numType.text = dataList[position].numTypes
         holder.score.text = dataList[position].score.toString()
     }
 
