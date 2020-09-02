@@ -55,4 +55,16 @@ interface NetworkService {
             @Query("userId") userId: Long?
     ): Call<GetProfileResponse>
 
+    @GET("/api/mypage/getExamRecord")
+    fun getExamRecordResponse(
+            @Header("authorization") authorization: String?,
+            @Query("userId") userId: Long?
+    ): Call<ArrayList<GetExamRecordResponse>>
+
+    @GET("/api/mypage/getPracticeRecord")
+    fun getPracticeRecordResponse(
+            @Header("authorization") authorization: String?,
+            @Query("userId") userId: Long?
+    ): Call<ArrayList<GetPracticeRecordResponse>>
+
 }
