@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_practice_end.*
+import org.jetbrains.anko.toast
 import yutori.tf.hangul.R
 import yutori.tf.hangul.process.HomeActivity
 import yutori.tf.hangul.process.NumselectActivity
@@ -32,7 +33,7 @@ class PracticeEndActivity : AppCompatActivity() {
             startActivity(intent)
         } else {
             backPressedTime = tempTime
-            Toast.makeText(applicationContext, "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+            toast("한번 더 누르면 종료됩니다.")
         }
     }
 

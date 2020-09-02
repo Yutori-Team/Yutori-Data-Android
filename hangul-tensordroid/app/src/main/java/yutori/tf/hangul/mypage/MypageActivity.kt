@@ -11,6 +11,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import yutori.tf.hangul.R
+import yutori.tf.hangul.SplashActivity
 import yutori.tf.hangul.data.GetProfileResponse
 import yutori.tf.hangul.db.SharedPreferenceController
 import yutori.tf.hangul.mypage.ExamRecord.ExamRecordActivity
@@ -49,7 +50,6 @@ class MypageActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, PracticeRecordActivity::class.java)
             startActivity(intent)
         }
-
 //        btn_mypage_profile.setOnClickListener {
 //
 //        }
