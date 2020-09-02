@@ -16,6 +16,7 @@ import yutori.tf.hangul.data.GetProfileResponse
 import yutori.tf.hangul.db.SharedPreferenceController
 import yutori.tf.hangul.mypage.ExamRecord.ExamRecordActivity
 import yutori.tf.hangul.mypage.PracticeRecord.PracticeRecordActivity
+import yutori.tf.hangul.mypage.profile.ProfileActivity
 import yutori.tf.hangul.network.ApplicationController
 import yutori.tf.hangul.network.NetworkService
 import yutori.tf.hangul.process.HomeActivity
@@ -50,9 +51,11 @@ class MypageActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, PracticeRecordActivity::class.java)
             startActivity(intent)
         }
-//        btn_mypage_profile.setOnClickListener {
-//
-//        }
+        btn_mypage_profile.setOnClickListener {
+            val intent = Intent(applicationContext, ProfileActivity::class.java)
+            startActivity(intent)
+
+        }
     }
 
     private fun getProfileResponse() {

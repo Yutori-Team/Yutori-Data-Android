@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import yutori.tf.hangul.R
+import yutori.tf.hangul.SplashActivity
 import yutori.tf.hangul.db.SharedPreferenceController
 import yutori.tf.hangul.network.ApplicationController
 import yutori.tf.hangul.network.NetworkService
@@ -26,13 +27,13 @@ class ProfileActivity : AppCompatActivity(){
     }
 
     private fun setClickListener() {
-//        btn_profile_logout.setOnClickListener {
-//            SharedPreferenceController.instance!!.removeAllData(this)
-//            val intent = Intent(this, SplashActivity::class.java)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//            startActivity(intent)
-//        }
+        btn_profile_logout.setOnClickListener {
+            SharedPreferenceController.instance!!.removeAllData(this)
+            val intent = Intent(this, SplashActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
     }
 
 }

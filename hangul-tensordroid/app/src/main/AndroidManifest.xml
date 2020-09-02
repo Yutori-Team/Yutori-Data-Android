@@ -17,6 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".mypage.profile.ProfileActivity" />
         <activity android:name=".mypage.PracticeRecord.PracticeRecordActivity" />
         <activity android:name=".mypage.ExamRecord.ExamRecordActivity" />
         <activity android:name=".mypage.MypageActivity" />
