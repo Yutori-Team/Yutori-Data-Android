@@ -31,10 +31,10 @@ class SharedPreferenceController {
         return pref?.getString(key, defValue)
     }
 
-//    @JvmOverloads
-//    fun getPrefBooleanData(key: String, defValue: Boolean = false): Boolean {
-//        return pref?.getBoolean(key, defValue)
-//    }
+    @JvmOverloads
+    fun getPrefBooleanData(key: String, defValue: Boolean = false): Boolean? {
+        return pref?.getBoolean(key, defValue)
+    }
 
     fun setPrefData(key: String, value: Boolean) {
         val editor = pref?.edit()
@@ -64,6 +64,11 @@ class SharedPreferenceController {
         editor?.apply()
     }
 
+    fun removeAllData(context: Context){
+        val editor = pref!!.edit()
+        editor.clear()
+        editor.commit()
+    }
 
     companion object {
         private val SHARED_PREFS_CONFIGURATION = "GithubConfiguration"

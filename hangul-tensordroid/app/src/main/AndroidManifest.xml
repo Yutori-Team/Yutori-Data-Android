@@ -10,7 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mypage.PracticeRecord.PracticeRecordActivity"></activity>
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".mypage.PracticeRecord.PracticeRecordActivity" />
         <activity android:name=".mypage.ExamRecord.ExamRecordActivity" />
         <activity android:name=".mypage.MypageActivity" />
         <activity android:name=".exam.CheckActivity" />
@@ -22,13 +29,7 @@
         <activity android:name=".process.HomeActivity" />
         <activity android:name=".process.SelectActivity" />
         <activity android:name=".process.NumselectActivity" />
-        <activity android:name=".login.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".login.LoginActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 

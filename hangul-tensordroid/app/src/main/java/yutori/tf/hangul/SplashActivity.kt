@@ -1,65 +1,63 @@
-package yutori.tf.hangul.login
+package yutori.tf.hangul
 
 import android.content.Intent
-import android.content.pm.ActivityInfo
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
-import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.toast
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import yutori.tf.hangul.process.HomeActivity
-import yutori.tf.hangul.R
 import yutori.tf.hangul.data.PostLoginResponse
 import yutori.tf.hangul.db.SharedPreferenceController
+import yutori.tf.hangul.login.LoginActivity
 import yutori.tf.hangul.network.ApplicationController
 import yutori.tf.hangul.network.NetworkService
+import yutori.tf.hangul.process.HomeActivity
 
-class LoginActivity : AppCompatActivity() {
+class SplashActivity : AppCompatActivity() {
 
     lateinit var networkService: NetworkService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        setContentView(R.layout.activity_splash)
         init()
     }
 
     private fun init() {
+        SharedPreferenceController.instance!!.load(this)
         networkService = ApplicationController.instance.networkService
-        setClickListener()
+        moveActivity()
     }
 
-    private fun setClickListener() {
-        btn_login_login.setOnClickListener {
-            val input_id: String = et_login_id.text.toString()
-            val input_pw: String = et_login_pw.text.toString()
-
-            if (input_id.isNotEmpty() && input_pw.isNotEmpty()) {
+    private fun moveActivity() {
+        val handler = Handler()
+        handler.postDelayed(Runnable {
+            val auto_login_flag = SharedPreferenceController.instance!!.getPrefBooleanData("auto_login")
+            val intent: Intent
+            if (auto_login_flag!!) {
                 postLoginResponse()
+                intent = Intent(applicationContext, HomeActivity::class.java)
+            } else {
+                intent = Intent(applicationContext, LoginActivity::class.java)
             }
-        }
-
-        btn_login_join.setOnClickListener {
-            val intent = Intent(applicationContext, JoinActivity::class.java)
             startActivity(intent)
-        }
-
+            finish()
+        }, 1000)
     }
 
     private fun postLoginResponse() {
-        val inputId = et_login_id.text.toString().trim()
-        val inputPw = et_login_pw.text.toString().trim()
+        val userId = SharedPreferenceController.instance!!.getPrefStringData("login_id")
+        val userPw = SharedPreferenceController.instance!!.getPrefStringData("login_pw")
 
         var jsonObject = JSONObject()
-        jsonObject.put("userId", inputId)
-        jsonObject.put("userPw", inputPw)
+        jsonObject.put("userId", userId)
+        jsonObject.put("userPw", userPw)
 
         val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
 
@@ -67,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
 
         postLoginResponse.enqueue(object : Callback<PostLoginResponse> {
             override fun onFailure(call: Call<PostLoginResponse>, t: Throwable) {
-                Log.i("Error LoginActivity : ", t.message.toString())
+                Log.i("Error SplashActivity : ", t.message.toString())
                 toast(t.message.toString())
             }
 
@@ -78,10 +76,6 @@ class LoginActivity : AppCompatActivity() {
                         200 -> {
                             SharedPreferenceController.instance?.setPrefData("userId", response.body()!!.id)
                             SharedPreferenceController.instance?.setPrefData("authorization", response.body()!!.token)
-                            SharedPreferenceController.instance!!.setPrefData("auto_login", true)
-                            SharedPreferenceController.instance!!.setPrefData("login_id", inputId)
-                            SharedPreferenceController.instance!!.setPrefData("login_pw", inputPw)
-                            startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
                         }
                         400 -> {
                             toast("400")
@@ -102,4 +96,5 @@ class LoginActivity : AppCompatActivity() {
         })
 
     }
+
 }
