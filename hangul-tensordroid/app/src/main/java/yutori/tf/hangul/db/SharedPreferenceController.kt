@@ -25,12 +25,6 @@ class SharedPreferenceController {
     fun getPrefIntegerData(key: String, defValue: Int = 0): Int {
         return pref!!.getInt(key, defValue)
     }
-//
-//    @JvmOverloads
-//    fun getPrefFloatData(key: String, defValue: Float = 0f): Float {
-//        return pref?.getFloat(key, defValue)
-//    }
-
 
     @JvmOverloads
     fun getPrefStringData(key: String, defValue: String = ""): String? {
@@ -56,13 +50,6 @@ class SharedPreferenceController {
         editor?.commit()
     }
 
-    fun setPrefData(key: String, value: Float) {
-        val editor = pref?.edit()
-
-        editor?.putFloat(key, value)
-        editor?.commit()
-    }
-
     fun setPrefData(key: String, value: Long) {
         val editor = pref?.edit()
 
@@ -78,50 +65,7 @@ class SharedPreferenceController {
     }
 
 
-    fun setPrefDatas(values: Map<String, Any>) {
-        val editor = pref?.edit()
-
-        val keyLists = values.keys.iterator()
-
-        while (keyLists.hasNext()) {
-            val key = keyLists.next()
-            val value = values[key]
-
-            if (value is String) {
-                editor?.putString(key, value)
-            } else if (value is Boolean) {
-                editor?.putBoolean(key, value)
-            } else if (value is Int) {
-                editor?.putInt(key, value)
-            } else if (value is Long) {
-                editor?.putLong(key, value)
-            } else if (value is Float) {
-                editor?.putFloat(key, value)
-            }
-        }
-
-        editor?.commit()
-    }
-
-    fun removeData(vararg keys: String) {
-        val editor = pref?.edit()
-
-        for (key in keys) {
-            editor?.remove(key)
-        }
-
-        editor?.commit()
-
-    }
-
-    fun removeAllData(context: Context){
-        val editor = pref?.edit()
-        editor?.clear()
-        editor?.commit()
-    }
-
     companion object {
-        // 공유명칭
         private val SHARED_PREFS_CONFIGURATION = "GithubConfiguration"
 
         @Volatile private var sharedPreferencesManager: SharedPreferenceController? = null
