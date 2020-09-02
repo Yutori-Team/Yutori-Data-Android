@@ -14,6 +14,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import yutori.tf.hangul.data.PostLoginResponse
 import yutori.tf.hangul.db.SharedPreferenceController
+import yutori.tf.hangul.login.JoinActivity
 import yutori.tf.hangul.login.LoginActivity
 import yutori.tf.hangul.network.ApplicationController
 import yutori.tf.hangul.network.NetworkService
@@ -81,12 +82,11 @@ class SplashActivity : AppCompatActivity() {
                             toast("400")
                         }
                         500 -> {
-                            toast("500")
-
+                            val intent = Intent(applicationContext, LoginActivity::class.java)
+                            startActivity(intent)
                         }
                         else -> {
                             toast("else")
-
                         }
                     }
                 }
