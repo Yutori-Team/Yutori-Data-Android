@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
@@ -24,12 +25,16 @@ import yutori.tf.hangul.login.LoginActivity
 import yutori.tf.hangul.network.ApplicationController
 import yutori.tf.hangul.network.NetworkService
 import yutori.tf.hangul.process.HomeActivity
+import yutori.tf.hangul.process.NumselectActivity
 
 class CheckActivity : AppCompatActivity() {
 
     lateinit var networkService: NetworkService
 
     val jsonArray = JSONArray()
+
+    private val FINISH_INTERVAL_TIME: Long = 2000
+    private var backPressedTime: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +47,20 @@ class CheckActivity : AppCompatActivity() {
         networkService = ApplicationController.instance.networkService
         setClickListener()
         postCheckResponse()
+    }
+
+    @Override
+    override fun onBackPressed() {
+        val tempTime = System.currentTimeMillis()
+        val intervalTime = tempTime - backPressedTime
+
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
+            val intent = Intent(applicationContext, NumselectActivity::class.java)
+            startActivity(intent)
+        } else {
+            backPressedTime = tempTime
+            Toast.makeText(applicationContext, "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setClickListener() {
@@ -90,7 +109,6 @@ class CheckActivity : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
-                            toast("200")
                             tv_check_score.setText(response.body()?.score.toString())
                             tv_check_answer1.setText(response.body()?.resCheckDtoList?.get(0)?.sentence)
                             tv_check_answer2.setText(response.body()?.resCheckDtoList?.get(1)?.sentence)

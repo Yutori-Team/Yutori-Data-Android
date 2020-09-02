@@ -142,7 +142,6 @@ class JoinActivity : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
-                            toast("200 회원가입 성공")
                             startActivity(Intent(this@JoinActivity, LoginActivity::class.java))
                         }
                         400 -> {

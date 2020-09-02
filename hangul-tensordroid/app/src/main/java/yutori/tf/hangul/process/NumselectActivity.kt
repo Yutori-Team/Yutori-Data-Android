@@ -21,7 +21,18 @@ class NumselectActivity : AppCompatActivity() {
         setClickListener()
     }
 
+    @Override
+    override fun onBackPressed() {
+        val intent = Intent(applicationContext, SelectActivity::class.java)
+        startActivity(intent)
+    }
+
     private fun setClickListener() {
+        btn_numselect_back.setOnClickListener {
+            val intent = Intent(applicationContext, SelectActivity::class.java)
+            startActivity(intent)
+        }
+
         btn_numselect_1.setOnClickListener {
             SharedPreferenceController.instance?.setPrefData("numTypes", "NUM1")
             moveActivity()

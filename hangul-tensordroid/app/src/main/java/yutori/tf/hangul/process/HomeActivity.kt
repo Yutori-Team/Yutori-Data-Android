@@ -21,6 +21,12 @@ class HomeActivity : AppCompatActivity() {
         setClickListener()
     }
 
+    @Override
+    override fun onBackPressed() {
+        val intent = Intent(applicationContext, HomeActivity::class.java)
+        startActivity(intent)
+    }
+
     private fun setClickListener() {
         btn_home_practice.setOnClickListener {
             SharedPreferenceController.instance?.setPrefData("homeTypes", "PRACTICE")

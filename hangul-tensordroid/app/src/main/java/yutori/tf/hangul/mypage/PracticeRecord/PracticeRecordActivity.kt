@@ -68,7 +68,6 @@ class PracticeRecordActivity : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
-                            toast("200")
                             val dataList: ArrayList<GetPracticeRecordResponse> = response.body()!!
                             if (dataList.size > 0) {
                                 val position = practiceRecordRecyclerViewAdapter.itemCount

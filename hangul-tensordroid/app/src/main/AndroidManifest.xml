@@ -18,7 +18,6 @@
         <activity android:name=".practice.PracticeEndActivity" />
         <activity android:name=".login.JoinActivity" />
         <activity android:name=".practice.PracticeActivity" />
-        <activity android:name=".SpeakActivity" />
         <activity android:name=".hangul.MainActivity" />
         <activity android:name=".process.HomeActivity" />
         <activity android:name=".process.SelectActivity" />

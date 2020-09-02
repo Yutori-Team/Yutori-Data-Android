@@ -8,6 +8,7 @@ import android.speech.tts.TextToSpeech
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MotionEvent
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_exam.*
 import org.jetbrains.anko.toast
 import retrofit2.Call
@@ -20,6 +21,7 @@ import yutori.tf.hangul.hangul.HangulClassifier
 import yutori.tf.hangul.hangul.PaintView
 import yutori.tf.hangul.network.ApplicationController
 import yutori.tf.hangul.network.NetworkService
+import yutori.tf.hangul.process.NumselectActivity
 import java.util.*
 
 class ExamActivity : AppCompatActivity() {
@@ -31,6 +33,9 @@ class ExamActivity : AppCompatActivity() {
 
     lateinit var tts: TextToSpeech
     lateinit var speakText: String
+
+    private val FINISH_INTERVAL_TIME: Long = 2000
+    private var backPressedTime: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +51,20 @@ class ExamActivity : AppCompatActivity() {
         initDraw()
         loadModel()
         getSentenceResponse()
+    }
+
+    @Override
+    override fun onBackPressed() {
+        val tempTime = System.currentTimeMillis()
+        val intervalTime = tempTime - backPressedTime
+
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
+            val intent = Intent(applicationContext, NumselectActivity::class.java)
+            startActivity(intent)
+        } else {
+            backPressedTime = tempTime
+            Toast.makeText(applicationContext, "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setClickListener() {
@@ -373,7 +392,6 @@ class ExamActivity : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
-                            toast("200")
                             speakText = response.body()?.get(number!!.minus(1))?.sentence.toString()
                         }
                         400 -> {
