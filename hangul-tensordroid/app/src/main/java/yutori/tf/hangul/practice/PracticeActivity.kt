@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.widget.Toast
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_practice.*
@@ -20,19 +21,24 @@ import yutori.tf.hangul.data.GetSentenceResponse
 import yutori.tf.hangul.db.SharedPreferenceController
 import yutori.tf.hangul.network.ApplicationController
 import yutori.tf.hangul.network.NetworkService
+import yutori.tf.hangul.process.NumselectActivity
 import java.util.*
+
 
 class PracticeActivity : AppCompatActivity() {
 
     lateinit var networkService: NetworkService
 
-    lateinit var tts : TextToSpeech
+    lateinit var tts: TextToSpeech
     lateinit var speakText: String
 
     val authorization = SharedPreferenceController.instance?.getPrefStringData("authorization")
     val sentenceTypes = SharedPreferenceController.instance?.getPrefStringData("sentenceTypes")
     val levelTypes = SharedPreferenceController.instance?.getPrefStringData("levelTypes")
     val numTypes = SharedPreferenceController.instance?.getPrefStringData("numTypes")
+
+    private val FINISH_INTERVAL_TIME: Long = 2000
+    private var backPressedTime: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,14 +55,28 @@ class PracticeActivity : AppCompatActivity() {
         getSentenceResponse()
     }
 
+    @Override
+    override fun onBackPressed() {
+        val tempTime = System.currentTimeMillis()
+        val intervalTime = tempTime - backPressedTime
+
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
+            val intent = Intent(applicationContext, NumselectActivity::class.java)
+            startActivity(intent)
+        } else {
+            backPressedTime = tempTime
+            toast("한번 더 누르면 종료됩니다.")
+        }
+    }
+
     private fun setClickListener() {
         btn_practice_next.setOnClickListener {
             val number = SharedPreferenceController.instance?.getPrefIntegerData("number_of_problem")
-            if(number == 10) {
+            if (number == 10) {
                 postPracticeResponse()
                 val intent = Intent(applicationContext, PracticeEndActivity::class.java)
                 startActivity(intent)
-            }else {
+            } else {
                 SharedPreferenceController.instance?.setPrefData("number_of_problem", number!!.plus(1))
                 val intent = Intent(applicationContext, PracticeActivity::class.java)
                 startActivity(intent)
@@ -74,6 +94,11 @@ class PracticeActivity : AppCompatActivity() {
 
         btn_practice_clear.setOnClickListener {
             clear()
+        }
+
+        btn_practice_out.setOnClickListener {
+            val intent = Intent(applicationContext, NumselectActivity::class.java)
+            startActivity(intent)
         }
 
     }
@@ -215,9 +240,7 @@ class PracticeActivity : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
-//                            response.body()?.get(number!!.minus(1)).toString()
-                            toast("200")
-                            tv_practice_sentence.setText( number.toString() + ". " + response.body()?.get(number!!.minus(1))?.sentence.toString())
+                            tv_practice_sentence.setText(number.toString() + ". " + response.body()?.get(number!!.minus(1))?.sentence.toString())
                             speakText = response.body()?.get(number!!.minus(1))?.sentence.toString()
                         }
                         400 -> {
@@ -263,7 +286,6 @@ class PracticeActivity : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
-                            toast("200")
                         }
                         400 -> {
                             toast("400")

@@ -77,7 +77,6 @@ class LoginActivity : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
-                            toast("200 로그인 성공")
                             SharedPreferenceController.instance?.setPrefData("userId", response.body()!!.id)
                             SharedPreferenceController.instance?.setPrefData("authorization", response.body()!!.token)
                             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))

@@ -68,7 +68,6 @@ class ExamRecordActivity : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
-                            toast("200")
                             val dataList: ArrayList<GetExamRecordResponse> = response.body()!!
                             if (dataList.size > 0) {
                                 val position = examRecordRecyclerViewAdapter.itemCount
