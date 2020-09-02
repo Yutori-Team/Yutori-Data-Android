@@ -63,7 +63,7 @@ class ExamActivity : AppCompatActivity() {
             startActivity(intent)
         } else {
             backPressedTime = tempTime
-            Toast.makeText(applicationContext, "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+            toast("한번 더 누르면 종료됩니다.")
         }
     }
 
@@ -96,6 +96,11 @@ class ExamActivity : AppCompatActivity() {
 
         btn_write_clear.setOnClickListener {
             clear()
+        }
+
+        btn_exam_out.setOnClickListener {
+            val intent = Intent(applicationContext, NumselectActivity::class.java)
+            startActivity(intent)
         }
 
     }

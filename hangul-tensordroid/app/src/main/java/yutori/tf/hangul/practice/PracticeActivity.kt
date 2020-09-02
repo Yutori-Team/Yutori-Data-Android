@@ -65,7 +65,7 @@ class PracticeActivity : AppCompatActivity() {
             startActivity(intent)
         } else {
             backPressedTime = tempTime
-            Toast.makeText(applicationContext, "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+            toast("한번 더 누르면 종료됩니다.")
         }
     }
 
@@ -94,6 +94,11 @@ class PracticeActivity : AppCompatActivity() {
 
         btn_practice_clear.setOnClickListener {
             clear()
+        }
+
+        btn_practice_out.setOnClickListener {
+            val intent = Intent(applicationContext, NumselectActivity::class.java)
+            startActivity(intent)
         }
 
     }
@@ -235,7 +240,7 @@ class PracticeActivity : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
-                            tv_practice_sentence.setText( number.toString() + ". " + response.body()?.get(number!!.minus(1))?.sentence.toString())
+                            tv_practice_sentence.setText(number.toString() + ". " + response.body()?.get(number!!.minus(1))?.sentence.toString())
                             speakText = response.body()?.get(number!!.minus(1))?.sentence.toString()
                         }
                         400 -> {
