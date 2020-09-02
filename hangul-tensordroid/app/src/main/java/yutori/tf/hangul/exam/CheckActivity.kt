@@ -95,6 +95,7 @@ class CheckActivity : AppCompatActivity() {
         jsonObject.put("userId", userId)
         jsonObject.put("reqCheckDtoList", jsonArray)
 
+
         val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
         val postCheckResponse = networkService.postCheckResponse(authorization, gsonObject)
 
