@@ -24,7 +24,7 @@ import yutori.tf.hangul.network.NetworkService
 import yutori.tf.hangul.process.NumselectActivity
 import java.util.*
 
-class ExamActivity : AppCompatActivity() {
+class ExamKt : AppCompatActivity() {
 
     lateinit var networkService: NetworkService
 

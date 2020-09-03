@@ -435,16 +435,35 @@
                 android:textSize="40dp"
                 android:layout_marginLeft="10dp"/>
         </LinearLayout>
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btn_write_clear"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:layout_marginEnd="10dp"
-            android:text="모두 지우기"
-            android:textSize="20dp"
-            android:background="@drawable/btn_border_black"/>
+            <Button
+                android:id="@+id/btn_write_clear"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_border_black"
+                android:text="모두 지우기"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_write_classify"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/btn_border_black"
+                android:text="변환하기"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_write_clear"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 
     <android.support.constraint.ConstraintLayout
