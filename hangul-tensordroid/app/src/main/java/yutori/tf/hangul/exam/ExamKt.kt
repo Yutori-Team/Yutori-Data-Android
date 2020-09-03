@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_exam.*
+import kotlinx.android.synthetic.main.activity_practice.*
 import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
@@ -397,6 +398,8 @@ class ExamKt : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
+                            tv_write_sentence.setText(number.toString() + ". 번 문제" )
+
                             speakText = response.body()?.get(number!!.minus(1))?.sentence.toString()
                         }
                         400 -> {

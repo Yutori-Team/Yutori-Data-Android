@@ -23,6 +23,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/tv_write_sentence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="받아쓰기 번호"
+            android:textSize="30dp"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_write_speak"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/btn_exam_out"
             android:layout_width="150dp"
