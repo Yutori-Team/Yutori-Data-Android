@@ -2,21 +2,25 @@ package yutori.tf.hangul.exam;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
 import java.util.Locale;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import yutori.tf.hangul.R;
+import yutori.tf.hangul.data.GetSentenceResponse;
 import yutori.tf.hangul.db.SharedPreferenceController;
 import yutori.tf.hangul.hangul.HangulClassifier;
 import yutori.tf.hangul.hangul.PaintView;
@@ -35,7 +39,6 @@ public class ExamActivity extends AppCompatActivity {
     private long backPressedTime = 0;
 
     private NetworkService networkService;
-    SharedPreferenceController sharedPreferenceController = new SharedPreferenceController();
 
     private HangulClassifier classifier;
     private PaintView paintView, paintView2, paintView3, paintView4, paintView5, paintView6, paintView7, paintView8,
@@ -64,12 +67,8 @@ public class ExamActivity extends AppCompatActivity {
         getSentenceResponse();
         loadModel();
 
-//        SharedPreferenceController.Companion.getInstance().setPrefData("number_of_problem", 1);
-        Integer num = SharedPreferenceController.Companion.getInstance().getPrefIntegerData("number_of_problem");
-
-        Toast.makeText(getApplicationContext(), num.toString(), Toast.LENGTH_SHORT).show();
-
-
+        TextView tv_page = (TextView) findViewById(R.id.tv_write_sentenceNum);
+        tv_page.setText(pageNumber.toString() + "번 문제");
     }
 
     @Override
@@ -127,8 +126,8 @@ public class ExamActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String key = "answer" + pageNumber.toString();
-                SharedPreferenceController.Companion.getInstance().setPrefData(key, "나");
-//                SharedPreferenceController.Companion.getInstance().setPrefData(key, resultText.toString());
+                SharedPreferenceController.Companion.getInstance().setPrefData(key, "나"); //더미 데이터
+//                SharedPreferenceController.Companion.getInstance().setPrefData(key, resultText.toString()); //실제 코드는 이거!
                 if (pageNumber == 10) {
                     intent = new Intent(getApplicationContext(), CheckActivity.class);
                     startActivity(intent);
@@ -349,12 +348,10 @@ public class ExamActivity extends AppCompatActivity {
 
     private void classify() {
         TextView resultText = (TextView) findViewById(R.id.tv_write_result);
-
         resultText.setText("");
 
         float pixels[] = paintView.getPixelData();
         currentTopLabels = classifier.classify(pixels);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView.touch) {
             resultText.append(" ");
         } else {
@@ -363,9 +360,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels2[] = paintView2.getPixelData();
         currentTopLabels = classifier.classify(pixels2);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView2.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -373,9 +368,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels3[] = paintView3.getPixelData();
         currentTopLabels = classifier.classify(pixels3);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView3.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -383,9 +376,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels4[] = paintView4.getPixelData();
         currentTopLabels = classifier.classify(pixels4);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView4.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -393,9 +384,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels5[] = paintView5.getPixelData();
         currentTopLabels = classifier.classify(pixels5);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView5.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -403,9 +392,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels6[] = paintView6.getPixelData();
         currentTopLabels = classifier.classify(pixels6);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView6.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -413,9 +400,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels7[] = paintView7.getPixelData();
         currentTopLabels = classifier.classify(pixels7);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView7.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -423,9 +408,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels8[] = paintView8.getPixelData();
         currentTopLabels = classifier.classify(pixels8);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView8.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -433,9 +416,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels9[] = paintView9.getPixelData();
         currentTopLabels = classifier.classify(pixels9);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView9.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -443,9 +424,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels10[] = paintView10.getPixelData();
         currentTopLabels = classifier.classify(pixels10);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView10.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -453,9 +432,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels11[] = paintView11.getPixelData();
         currentTopLabels = classifier.classify(pixels11);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView11.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -463,9 +440,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels12[] = paintView12.getPixelData();
         currentTopLabels = classifier.classify(pixels12);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView12.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -473,9 +448,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels13[] = paintView13.getPixelData();
         currentTopLabels = classifier.classify(pixels13);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView13.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -483,9 +456,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels14[] = paintView14.getPixelData();
         currentTopLabels = classifier.classify(pixels14);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView14.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -493,9 +464,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels15[] = paintView15.getPixelData();
         currentTopLabels = classifier.classify(pixels15);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView15.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -503,9 +472,7 @@ public class ExamActivity extends AppCompatActivity {
 
         float pixels16[] = paintView16.getPixelData();
         currentTopLabels = classifier.classify(pixels16);
-        //resultText.setText(currentTopLabels[0]);
         if (paintView16.touch) {
-            //resultText.append(currentTopLabels[0]);
             resultText.append(" ");
         } else {
             resultText.append(currentTopLabels[0]);
@@ -513,6 +480,39 @@ public class ExamActivity extends AppCompatActivity {
     }
 
     private void getSentenceResponse() {
+        String authorization = SharedPreferenceController.Companion.getInstance().getPrefStringData("authorization");
+        String sentenceTypes = SharedPreferenceController.Companion.getInstance().getPrefStringData("sentenceTypes");
+        String levelTypes = SharedPreferenceController.Companion.getInstance().getPrefStringData("levelTypes");
+        String numTypes = SharedPreferenceController.Companion.getInstance().getPrefStringData("numTypes");
+
+        Call<List<GetSentenceResponse>> getSentenceResponse = networkService.getSentenceResponse(authorization, sentenceTypes, levelTypes, numTypes);
+
+        getSentenceResponse.enqueue(new Callback<List<GetSentenceResponse>>() {
+
+            @Override
+            public void onFailure(Call<List<GetSentenceResponse>> call, Throwable t) {
+                Log.i("Error Exam : ", t.toString());
+                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onResponse(Call<List<GetSentenceResponse>> call, Response<List<GetSentenceResponse>> response) {
+                if (response.code() == 200) {
+                    Toast.makeText(getApplicationContext(), "200", Toast.LENGTH_SHORT).show();
+                    speakText = response.body().get(pageNumber - 1).getSentence();
+                } else if (response.code() == 400) {
+                    Toast.makeText(getApplicationContext(), "400", Toast.LENGTH_SHORT).show();
+                } else if (response.code() == 404) {
+                    Toast.makeText(getApplicationContext(), "404", Toast.LENGTH_SHORT).show();
+                } else if (response.code() == 500) {
+                    Toast.makeText(getApplicationContext(), "500", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "else", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        });
+
 
     }
 

@@ -398,7 +398,7 @@ class ExamKt : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
-                            tv_write_sentence.setText(number.toString() + ". 번 문제" )
+                            tv_write_sentenceNum.setText(number.toString() + ". 번 문제" )
 
                             speakText = response.body()?.get(number!!.minus(1))?.sentence.toString()
                         }
