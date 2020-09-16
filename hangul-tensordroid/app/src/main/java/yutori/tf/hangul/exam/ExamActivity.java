@@ -51,6 +51,7 @@ public class ExamActivity extends AppCompatActivity {
     private Integer pageNumber = SharedPreferenceController.Companion.getInstance().getPrefIntegerData("number_of_problem");
     private String speakText;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,8 +127,10 @@ public class ExamActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String key = "answer" + pageNumber.toString();
-//                SharedPreferenceController.Companion.getInstance().setPrefData(key, "나"); //더미 데이터
-                SharedPreferenceController.Companion.getInstance().setPrefData(key, resultText.toString()); //실제 코드는 이거!
+
+                TextView resultText = (TextView) findViewById(R.id.tv_write_result);
+                SharedPreferenceController.Companion.getInstance().setPrefData(key, resultText.getText().toString().trim());
+
                 if (pageNumber == 10) {
                     intent = new Intent(getApplicationContext(), CheckActivity.class);
                     startActivity(intent);
