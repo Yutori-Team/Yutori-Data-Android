@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.widget.Toast
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_practice.*
@@ -109,6 +108,8 @@ class PracticeActivity : AppCompatActivity() {
             fun onInit(status: Int) {
                 if (status != TextToSpeech.ERROR) {
                     tts.setLanguage(Locale.KOREAN)
+                    tts.setPitch(0.8f)
+                    tts.setSpeechRate(0.6f)
                 }
             }
         })

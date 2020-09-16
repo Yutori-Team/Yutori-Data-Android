@@ -50,13 +50,13 @@ public class PaintView extends View {
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeJoin(Paint.Join.ROUND);
         paint.setStrokeCap(Paint.Cap.ROUND);
-        paint.setStrokeWidth(6);
+        paint.setStrokeWidth(5);
     }
 
     public void reset() {
         path.reset();
         if (bitmap != null) {
-            bitmap.eraseColor(Color.BLACK);
+            bitmap.eraseColor(Color.WHITE);
         }
     }
 
@@ -143,7 +143,7 @@ public class PaintView extends View {
             getBitmapCoords(event.getX(), event.getY(), pointF);
             path.lineTo(pointF.x, pointF.y);
             paintPath.setPath(path);
-            paint.setColor(Color.WHITE);
+            paint.setColor(Color.BLACK);
             paintPath.setPaint(paint);
             PaintPathList.add(paintPath);
 

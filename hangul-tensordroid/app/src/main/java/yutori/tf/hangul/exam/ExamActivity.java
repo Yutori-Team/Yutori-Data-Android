@@ -32,7 +32,7 @@ import static android.speech.tts.TextToSpeech.ERROR;
 
 public class ExamActivity extends AppCompatActivity {
 
-    private static final String LABEL_FILE = "256-common-hangul.txt";
+    private static final String LABEL_FILE = "hangul-label.txt";
     private static final String MODEL_FILE = "optimized_hangul_tensorflow.pb";
 
     private final long FINISH_INTERVAL_TIME = 2000;
@@ -87,11 +87,11 @@ public class ExamActivity extends AppCompatActivity {
     private void setClickListener() {
 
         Button clearButton = (Button) findViewById(R.id.btn_write_clear);
+        final TextView resultText = (TextView) findViewById(R.id.tv_write_result);
         clearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clear();
-                TextView resultText = (TextView) findViewById(R.id.tv_write_result);
                 resultText.setText("");
                 paintView.touch = true;
                 paintView2.touch = true;
@@ -126,8 +126,8 @@ public class ExamActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String key = "answer" + pageNumber.toString();
-                SharedPreferenceController.Companion.getInstance().setPrefData(key, "나"); //더미 데이터
-//                SharedPreferenceController.Companion.getInstance().setPrefData(key, resultText.toString()); //실제 코드는 이거!
+//                SharedPreferenceController.Companion.getInstance().setPrefData(key, "나"); //더미 데이터
+                SharedPreferenceController.Companion.getInstance().setPrefData(key, resultText.toString()); //실제 코드는 이거!
                 if (pageNumber == 10) {
                     intent = new Intent(getApplicationContext(), CheckActivity.class);
                     startActivity(intent);
@@ -279,6 +279,8 @@ public class ExamActivity extends AppCompatActivity {
             public void onInit(int status) {
                 if (status != ERROR) {
                     tts.setLanguage(Locale.KOREAN);
+                    tts.setPitch(0.8f);
+                    tts.setSpeechRate(0.6f);
                 }
             }
         });

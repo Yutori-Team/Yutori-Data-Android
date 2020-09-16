@@ -18,6 +18,13 @@ interface NetworkService {
             @Body() body: JsonObject
     ): Call<PostLoginResponse>
 
+    @DELETE("/api/user/deleteMember")
+    fun deleteMemberResponse(
+            @Header("authorization") authorization: String?,
+            @Query("userId") userId: Long?
+    ): Call<Void>
+
+
 
     //########### Sentence Controller ###########
     @GET("/api/check/getSentence")
