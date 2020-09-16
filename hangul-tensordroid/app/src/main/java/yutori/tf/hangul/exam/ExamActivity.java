@@ -88,11 +88,11 @@ public class ExamActivity extends AppCompatActivity {
     private void setClickListener() {
 
         Button clearButton = (Button) findViewById(R.id.btn_write_clear);
+        final TextView resultText = (TextView) findViewById(R.id.tv_write_result);
         clearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clear();
-                TextView resultText = (TextView) findViewById(R.id.tv_write_result);
                 resultText.setText("");
                 paintView.touch = true;
                 paintView2.touch = true;
@@ -127,8 +127,10 @@ public class ExamActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String key = "answer" + pageNumber.toString();
+
                 TextView resultText = (TextView) findViewById(R.id.tv_write_result);
                 SharedPreferenceController.Companion.getInstance().setPrefData(key, resultText.getText().toString().trim());
+
                 if (pageNumber == 10) {
                     intent = new Intent(getApplicationContext(), CheckActivity.class);
                     startActivity(intent);
@@ -280,6 +282,8 @@ public class ExamActivity extends AppCompatActivity {
             public void onInit(int status) {
                 if (status != ERROR) {
                     tts.setLanguage(Locale.KOREAN);
+                    tts.setPitch(0.8f);
+                    tts.setSpeechRate(0.6f);
                 }
             }
         });

@@ -50,7 +50,7 @@ public class PaintView extends View {
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeJoin(Paint.Join.ROUND);
         paint.setStrokeCap(Paint.Cap.ROUND);
-        paint.setStrokeWidth(6);
+        paint.setStrokeWidth(5);
     }
 
     public void reset() {

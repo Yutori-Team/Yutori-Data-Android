@@ -88,7 +88,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:background="#FFFFFF"
+                android:background="#ffffff"
                 android:layout_weight="1">
                 <yutori.tf.hangul.hangul.PaintView
                     android:id="@+id/paint_write_2"

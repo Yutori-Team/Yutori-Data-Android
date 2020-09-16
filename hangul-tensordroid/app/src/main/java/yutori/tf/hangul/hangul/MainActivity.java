@@ -16,7 +16,7 @@ import yutori.tf.hangul.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String LABEL_FILE = "256-common-hangul.txt";
+    private static final String LABEL_FILE = "hangul-label.txt";
     private static final String MODEL_FILE = "optimized_hangul_tensorflow.pb";
 
     private HangulClassifier classifier;
