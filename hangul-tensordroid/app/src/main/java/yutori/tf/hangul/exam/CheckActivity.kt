@@ -95,7 +95,6 @@ class CheckActivity : AppCompatActivity() {
         jsonObject.put("userId", userId)
         jsonObject.put("reqCheckDtoList", jsonArray)
 
-
         val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
         val postCheckResponse = networkService.postCheckResponse(authorization, gsonObject)
 
@@ -231,8 +230,6 @@ class CheckActivity : AppCompatActivity() {
                                     WrongDialog(this@CheckActivity, response.body()?.resCheckDtoList?.get(9)?.sentenceId).show()
                                 }
                             }
-
-
                         }
                         400 -> {
                             toast("400")

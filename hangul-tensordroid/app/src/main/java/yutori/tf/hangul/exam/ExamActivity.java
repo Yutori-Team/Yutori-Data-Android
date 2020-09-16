@@ -32,7 +32,7 @@ import static android.speech.tts.TextToSpeech.ERROR;
 
 public class ExamActivity extends AppCompatActivity {
 
-    private static final String LABEL_FILE = "256-common-hangul.txt";
+    private static final String LABEL_FILE = "hangul-label.txt";
     private static final String MODEL_FILE = "optimized_hangul_tensorflow.pb";
 
     private final long FINISH_INTERVAL_TIME = 2000;
@@ -50,6 +50,7 @@ public class ExamActivity extends AppCompatActivity {
     private Intent intent;
     private Integer pageNumber = SharedPreferenceController.Companion.getInstance().getPrefIntegerData("number_of_problem");
     private String speakText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,8 +127,8 @@ public class ExamActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String key = "answer" + pageNumber.toString();
-                SharedPreferenceController.Companion.getInstance().setPrefData(key, "나"); //더미 데이터
-//                SharedPreferenceController.Companion.getInstance().setPrefData(key, resultText.toString()); //실제 코드는 이거!
+                TextView resultText = (TextView) findViewById(R.id.tv_write_result);
+                SharedPreferenceController.Companion.getInstance().setPrefData(key, resultText.getText().toString().trim());
                 if (pageNumber == 10) {
                     intent = new Intent(getApplicationContext(), CheckActivity.class);
                     startActivity(intent);
