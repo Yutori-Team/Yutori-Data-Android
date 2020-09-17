@@ -73,13 +73,28 @@
                 android:id="@+id/et_profile_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="100dp"
+                android:layout_marginHorizontal="200dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:hint=" 닉네임"
                 android:textSize="23dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_profile_name"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:ems="10"
+                android:hint="닉네임"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/et_profile_name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
@@ -93,7 +108,7 @@
                 android:id="@+id/tv_profile_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="100dp"
+                android:layout_marginHorizontal="200dp"
                 android:ems="10"
                 android:hint=" 아이디"
                 android:inputType="textPersonName"
@@ -107,8 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1.18dp"
                 android:layout_centerInParent="true"
-                android:layout_marginStart="105dp"
-                android:layout_marginEnd="105dp"
+                android:layout_marginHorizontal="200dp"
                 android:layout_marginBottom="35dp"
                 android:background="#888888"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -116,6 +130,19 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints" />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="아이디"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textSize="30dp"
+                android:layout_marginStart="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_profile_id"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
 
@@ -123,12 +150,25 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="비밀번호"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textSize="30dp"
+                android:layout_marginStart="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/et_profile_pw"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/et_profile_pw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="100dp"
+                android:layout_marginHorizontal="200dp"
                 android:ems="10"
                 android:hint=" 비밀번호를 입력해주세요."
                 android:inputType="textPersonName"
@@ -139,13 +179,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/iv_join_pw_validation"
+                android:id="@+id/iv_profile_pw_validation"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/et_join_pw"
-                app:layout_constraintEnd_toEndOf="@+id/et_join_pw"
+                app:layout_constraintBottom_toBottomOf="@+id/et_profile_pw"
+                app:layout_constraintEnd_toEndOf="@+id/et_profile_pw"
                 app:srcCompat="@drawable/check"
                 android:visibility="gone"/>
 
@@ -156,10 +196,10 @@
             android:layout_weight="1">
 
             <EditText
-                android:id="@+id/et_profile_confilmpw"
+                android:id="@+id/et_profile_compilepw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="100dp"
+                android:layout_marginHorizontal="200dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:hint=" 비밀번호를 다시 입력해주세요."
@@ -170,13 +210,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/iv_join_confilmpw_validation"
+                android:id="@+id/iv_profile_compilepw_validation"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/et_join_confilmpw"
-                app:layout_constraintEnd_toEndOf="@+id/et_join_confilmpw"
+                app:layout_constraintBottom_toBottomOf="@+id/et_profile_compilepw"
+                app:layout_constraintEnd_toEndOf="@+id/et_profile_compilepw"
                 app:srcCompat="@drawable/check"
                 android:visibility="gone"/>
         </android.support.constraint.ConstraintLayout>

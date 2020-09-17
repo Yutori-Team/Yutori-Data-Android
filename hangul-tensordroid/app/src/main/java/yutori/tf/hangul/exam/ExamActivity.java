@@ -269,6 +269,7 @@ public class ExamActivity extends AppCompatActivity {
         paintView11.invalidate();
         paintView12.invalidate();
         paintView13.invalidate();
+
         paintView14.invalidate();
         paintView15.invalidate();
         paintView16.invalidate();
