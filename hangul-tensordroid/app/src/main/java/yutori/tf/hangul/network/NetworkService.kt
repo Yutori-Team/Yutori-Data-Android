@@ -25,7 +25,6 @@ interface NetworkService {
     ): Call<Void>
 
 
-
     //########### Sentence Controller ###########
     @GET("/api/check/getSentence")
     fun getSentenceResponse(
@@ -74,4 +73,9 @@ interface NetworkService {
             @Query("userId") userId: Long?
     ): Call<ArrayList<GetPracticeRecordResponse>>
 
+    @PUT("/api/mypage/updateProfile")
+    fun putProfileResponse(
+            @Header("authorization") authorization: String?,
+            @Body() body: JsonObject
+    ): Call<Void>
 }
