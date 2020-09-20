@@ -30,13 +30,17 @@ class HomeActivity : AppCompatActivity() {
     private fun setClickListener() {
         btn_home_practice.setOnClickListener {
             SharedPreferenceController.instance?.setPrefData("homeTypes", "PRACTICE")
-            val intent = Intent(applicationContext, SelectActivity::class.java)
-            startActivity(intent)
+            SharedPreferenceController.instance?.setPrefData("sentenceTypes", "SENTENCE")
+            LevelDialog(this).show()
+//            val intent = Intent(applicationContext, SelectActivity::class.java)
+//            startActivity(intent)
         }
         btn_home_exam.setOnClickListener {
             SharedPreferenceController.instance?.setPrefData("homeTypes", "EXAM")
-            val intent = Intent(applicationContext, SelectActivity::class.java)
-            startActivity(intent)
+            SharedPreferenceController.instance?.setPrefData("sentenceTypes", "SENTENCE")
+            LevelDialog(this).show()
+//            val intent = Intent(applicationContext, SelectActivity::class.java)
+//            startActivity(intent)
         }
         btn_home_mypage.setOnClickListener {
             val intent = Intent(applicationContext, MypageActivity::class.java)

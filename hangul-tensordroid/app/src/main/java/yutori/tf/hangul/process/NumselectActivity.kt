@@ -23,13 +23,13 @@ class NumselectActivity : AppCompatActivity() {
 
     @Override
     override fun onBackPressed() {
-        val intent = Intent(applicationContext, SelectActivity::class.java)
+        val intent = Intent(applicationContext, HomeActivity::class.java)
         startActivity(intent)
     }
 
     private fun setClickListener() {
         btn_numselect_back.setOnClickListener {
-            val intent = Intent(applicationContext, SelectActivity::class.java)
+            val intent = Intent(applicationContext, HomeActivity::class.java)
             startActivity(intent)
         }
 

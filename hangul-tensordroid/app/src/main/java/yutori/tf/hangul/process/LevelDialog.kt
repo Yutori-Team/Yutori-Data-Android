@@ -59,7 +59,6 @@ class LevelDialog(val ctx : Context?) : Dialog(ctx)  {
                 val intent = Intent(ctx, NumselectActivity::class.java)
                 ctx?.startActivity(intent)
             }
-
         }
 
         btn_level_cancel.setOnClickListener {
