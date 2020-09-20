@@ -180,8 +180,6 @@ class ProfileActivity : AppCompatActivity(){
             }
 
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
-
-
                 response.let {
                     when (it.code()) {
                         200 -> {
@@ -204,7 +202,6 @@ class ProfileActivity : AppCompatActivity(){
     }
 
     private fun putProfileResponse(){
-
         val inputName = et_profile_name.text.toString().trim()
         val inputPw = et_profile_pw.text.toString().trim()
 
@@ -244,7 +241,6 @@ class ProfileActivity : AppCompatActivity(){
                     }
                 }
             }
-
 
         })
     }

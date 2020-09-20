@@ -75,7 +75,6 @@ class ExamRecordActivity : AppCompatActivity() {
                                 examRecordRecyclerViewAdapter.notifyItemInserted(position)
                             } else {
                             }
-
                         }
                         400 -> {
                             toast("400")
@@ -92,7 +91,6 @@ class ExamRecordActivity : AppCompatActivity() {
                     }
                 }
             }
-
 
         })
     }
