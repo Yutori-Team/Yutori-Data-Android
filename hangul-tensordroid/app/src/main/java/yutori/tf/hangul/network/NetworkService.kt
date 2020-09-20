@@ -24,6 +24,11 @@ interface NetworkService {
             @Query("userId") userId: Long?
     ): Call<Void>
 
+    @GET("/api/user/checkId")
+    fun getCheckIdResponse(
+            @Query("id") id: String?
+    ): Call<Void>
+
 
     //########### Sentence Controller ###########
     @GET("/api/check/getSentence")

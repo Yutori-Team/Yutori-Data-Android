@@ -43,7 +43,7 @@ class JoinActivity : AppCompatActivity() {
 
     private fun setClickListener() {
         btn_join_ok.setOnClickListener {
-            if(name_validation && id_validation && pw_validation && pw_confirm_validation) {
+            if(name_validation && id_validation && pw_validation && pw_confirm_validation && id_check) {
                 postJoinResponse()
             }
             else {
@@ -56,6 +56,7 @@ class JoinActivity : AppCompatActivity() {
     var id_validation = false
     var pw_validation = false
     var pw_confirm_validation = false
+    var id_check = false
 
     private fun checkValidation() {
 
@@ -71,10 +72,13 @@ class JoinActivity : AppCompatActivity() {
         et_join_id.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 id_validation = et_join_id.text.toString().trim().isNotEmpty()
+
+                getCheckIdResponse()
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
         })
 
 
@@ -115,6 +119,42 @@ class JoinActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
 
+    }
+
+    private fun getCheckIdResponse(){
+
+        val inputId = et_join_id.text.toString().trim()
+
+        val getCheckIdResponse = networkService.getCheckIdResponse(inputId)
+
+        getCheckIdResponse.enqueue(object : Callback<Void> {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Log.d("Error CheckActivity : ", t.message.toString())
+                toast(t.message.toString())
+            }
+
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+
+                response.let {
+                    when (it.code()) {
+                        200 -> {
+                            id_check = true
+                            toast("중복된 아이디가 없습니다.")
+                        }
+                        400 -> {
+                            toast("400")
+                        }
+                        500 -> {
+                            toast("중복된 아이디가 있습니다.")
+                        }
+                        else -> {
+                            toast("else")
+
+                        }
+                    }
+                }
+            }
+        })
     }
 
     private fun postJoinResponse() {
