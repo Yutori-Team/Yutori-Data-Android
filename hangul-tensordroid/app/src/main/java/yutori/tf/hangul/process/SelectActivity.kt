@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_select.*
 import yutori.tf.hangul.R
 import yutori.tf.hangul.db.SharedPreferenceController
 
+// ################ 사용 안함 xxxxxxxxxxxx #######################
 class SelectActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
