@@ -180,8 +180,6 @@ class ProfileActivity : AppCompatActivity(){
             }
 
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
-
-
                 response.let {
                     when (it.code()) {
                         200 -> {
@@ -204,7 +202,6 @@ class ProfileActivity : AppCompatActivity(){
     }
 
     private fun putProfileResponse(){
-
         val inputName = et_profile_name.text.toString().trim()
         val inputPw = et_profile_pw.text.toString().trim()
 
@@ -228,11 +225,6 @@ class ProfileActivity : AppCompatActivity(){
                 response.let {
                     when (it.code()) {
                         200 -> {
-//                            SharedPreferenceController.instance?.setPrefData("userId", response.body()!!.id)
-//                            SharedPreferenceController.instance?.setPrefData("authorization", response.body()!!.token)
-//                            SharedPreferenceController.instance!!.setPrefData("auto_login", true)
-//                            SharedPreferenceController.instance!!.setPrefData("login_id", inputId)
-//                            SharedPreferenceController.instance!!.setPrefData("login_pw", inputPw)
                             startActivity(Intent(this@ProfileActivity, ProfileActivity::class.java))
                         }
                         400 -> {
@@ -249,7 +241,6 @@ class ProfileActivity : AppCompatActivity(){
                     }
                 }
             }
-
 
         })
     }
