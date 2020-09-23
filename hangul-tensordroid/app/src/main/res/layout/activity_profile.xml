@@ -11,14 +11,14 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.16"
-        android:background="@color/main_blue">
+        android:layout_height="120dp"
+        android:background="@drawable/bg_tabmdpi">
 
         <Button
             android:id="@+id/btn_profile_back"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginStart="32dp"
             android:background="@drawable/btn_backmdpi"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -29,11 +29,12 @@
             android:id="@+id/btn_profile_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginStart="32dp"
-            android:text="내 정보"
             android:fontFamily="@font/dx"
+            android:text="내 정보"
             android:textColor="#FFFFFF"
-            android:textSize="35dp"
+            android:textSize="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_profile_back"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,11 +43,12 @@
             android:id="@+id/btn_profile_modify"
             android:layout_width="130dp"
             android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/btn_yellow"
-            android:text="수정"
             android:fontFamily="@font/dx"
-            android:textSize="24dp"
+            android:text="수정"
             android:textColor="#000000"
+            android:textSize="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.932"
@@ -59,12 +61,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.05">
+        android:layout_weight="0.08">
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.58"
+        android:layout_weight="0.7"
         android:weightSum="4"
         android:orientation="vertical">
         <android.support.constraint.ConstraintLayout
@@ -238,7 +240,7 @@
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:layout_marginEnd="70dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/login_redboxmdpi"
             android:text="로그아웃"
             android:fontFamily="@font/dx"
@@ -254,13 +256,12 @@
             android:id="@+id/btn_profile_delete"
             android:layout_width="150dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="70dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/login_redboxmdpi"
-            android:text="탈퇴"
             android:fontFamily="@font/dx"
-            android:textSize="24dp"
+            android:text="탈퇴"
             android:textColor="#FFFFFF"
+            android:textSize="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_profile_logout"
@@ -269,4 +270,3 @@
     </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>
-

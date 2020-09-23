@@ -11,26 +11,27 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.2"
-        android:background="#F4B183">
+        android:layout_height="120dp"
+        android:background="@drawable/bg_tabmdpi">
         <Button
             android:id="@+id/btn_exam_record_back"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginStart="32dp"
+            android:background="@drawable/btn_backmdpi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/back"/>
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:text="시험 기록"
-            android:textColor="#000000"
-            android:textSize="35dp"
+            android:textColor="#FFFFFF"
+            android:textSize="40dp"
+            android:fontFamily="@font/dx"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_exam_record_back"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.1"
-        android:background="#F4B183"
+        android:background="@color/main_yellow"
         android:orientation="horizontal"
         android:weightSum="6">
         <RelativeLayout
@@ -53,6 +54,7 @@
                 android:text="날짜"
                 android:textColor="#000000"
                 android:textSize="25dp"
+                android:fontFamily="@font/dx"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
 
@@ -66,6 +68,7 @@
                 android:text="시간"
                 android:textColor="#000000"
                 android:textSize="25dp"
+                android:fontFamily="@font/dx"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
 
@@ -79,6 +82,7 @@
                 android:text="분류"
                 android:textColor="#000000"
                 android:textSize="25dp"
+                android:fontFamily="@font/dx"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
 
@@ -92,6 +96,7 @@
                 android:text="난이도"
                 android:textColor="#000000"
                 android:textSize="25dp"
+                android:fontFamily="@font/dx"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
 
@@ -105,6 +110,7 @@
                 android:text="단계"
                 android:textColor="#000000"
                 android:textSize="25dp"
+                android:fontFamily="@font/dx"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
 
@@ -118,6 +124,7 @@
                 android:text="점수"
                 android:textColor="#000000"
                 android:textSize="25dp"
+                android:fontFamily="@font/dx"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
     </LinearLayout>
