@@ -5,6 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="yutori.tf.hangul.SplashActivity"
-    android:background="#FFE699">
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="120dp"
+        android:src="@drawable/login_charactormdpi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

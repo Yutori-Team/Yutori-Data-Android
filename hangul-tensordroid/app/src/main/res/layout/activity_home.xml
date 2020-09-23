@@ -21,7 +21,7 @@
             android:fontFamily="@font/dx"
             android:text="오늘의 공부"
             android:textColor="#FFFFFF"
-            android:textSize="34dp"
+            android:textSize="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

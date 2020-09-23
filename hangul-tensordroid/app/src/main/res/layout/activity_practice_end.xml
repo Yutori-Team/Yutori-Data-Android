@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFEF7"
+    android:background="#FFFFFF"
     tools:context="yutori.tf.hangul.practice.PracticeEndActivity">
 
     <Button
         android:id="@+id/btn_practice_end_home"
         android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:background="@drawable/btn_level_ok"
+        android:layout_height="100dp"
+        android:background="@drawable/login_blueboxmdpi"
         android:text="메인으로 가기"
-        android:textSize="25dp"
+        android:textSize="36dp"
+        android:fontFamily="@font/dx"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -24,9 +26,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/dx"
         android:text="연습 완료"
-        android:textSize="40dp"
-        android:textColor="#F4B183"
+        android:textColor="@color/main_yellow"
+        android:textSize="50dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_practice_end_home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -40,10 +44,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="시험에 도전해보세요!"
-        android:textSize="30dp"
+        android:textSize="36dp"
         android:textColor="#000000"
+        android:fontFamily="@font/dx"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="300dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:srcCompat="@drawable/login_charactormdpi" />
 
 </android.support.constraint.ConstraintLayout>

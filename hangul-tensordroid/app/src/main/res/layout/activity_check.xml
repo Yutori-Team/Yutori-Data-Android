@@ -20,8 +20,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="100"
-            android:textColor="#F4B183"
+            android:textColor="@color/main_yellow"
             android:textSize="50dp"
+            android:fontFamily="@font/dx"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView3"
             app:layout_constraintHorizontal_bias="0.5"
@@ -35,8 +36,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="점"
-            android:textColor="#F4B183"
+            android:textColor="@color/main_yellow"
             android:textSize="50dp"
+            android:fontFamily="@font/dx"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -77,6 +79,7 @@
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_num1"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -89,6 +92,7 @@
                 android:text="1."
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match1"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -99,6 +103,7 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="32dp"
                 android:text="답 확인"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer1"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_answer1"
                 app:layout_constraintTop_toTopOf="@+id/tv_check_answer1"
@@ -128,6 +133,7 @@
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_num2"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -140,6 +146,7 @@
                 android:text="2."
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match2"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -151,6 +158,7 @@
                 android:layout_marginStart="32dp"
                 android:background="@drawable/btn_level_full"
                 android:text="답 확인"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer2"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_answer2"
                 app:layout_constraintTop_toTopOf="@+id/tv_check_answer2" />
@@ -179,6 +187,7 @@
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_num3"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -191,6 +200,7 @@
                 android:text="3."
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match3"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -202,6 +212,7 @@
                 android:layout_marginStart="32dp"
                 android:background="@drawable/btn_level_full"
                 android:text="답 확인"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer3"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_answer3"
                 app:layout_constraintTop_toTopOf="@+id/tv_check_answer3" />
@@ -219,6 +230,7 @@
                 android:layout_marginStart="32dp"
                 android:background="@drawable/btn_level_full"
                 android:text="답 확인"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer4"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_answer4"
                 app:layout_constraintTop_toTopOf="@+id/tv_check_answer4" />
@@ -241,6 +253,7 @@
                 android:text="4."
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match4"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -253,6 +266,7 @@
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_num4"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -281,6 +295,7 @@
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_num5"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -293,6 +308,7 @@
                 android:text="5."
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match5"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -304,6 +320,7 @@
                 android:layout_marginStart="32dp"
                 android:background="@drawable/btn_level_full"
                 android:text="답 확인"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer5"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_answer5"
                 app:layout_constraintTop_toTopOf="@+id/tv_check_answer5" />
@@ -332,6 +349,7 @@
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_num6"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -344,6 +362,7 @@
                 android:text="6."
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match6"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -355,6 +374,7 @@
                 android:layout_marginStart="32dp"
                 android:background="@drawable/btn_level_full"
                 android:text="답 확인"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer6"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_answer6"
                 app:layout_constraintTop_toTopOf="@+id/tv_check_answer6" />
@@ -383,6 +403,7 @@
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_num7"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -395,6 +416,7 @@
                 android:text="7."
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match7"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -406,6 +428,7 @@
                 android:layout_marginStart="32dp"
                 android:background="@drawable/btn_level_full"
                 android:text="답 확인"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer7"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_answer7"
                 app:layout_constraintTop_toTopOf="@+id/tv_check_answer7" />
@@ -434,6 +457,7 @@
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_num8"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -446,6 +470,7 @@
                 android:text="8."
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match8"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -457,6 +482,7 @@
                 android:layout_marginStart="32dp"
                 android:background="@drawable/btn_level_full"
                 android:text="답 확인"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer8"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_answer8"
                 app:layout_constraintTop_toTopOf="@+id/tv_check_answer8" />
@@ -485,6 +511,7 @@
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_num9"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -497,6 +524,7 @@
                 android:text="9."
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match9"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -508,6 +536,7 @@
                 android:layout_marginStart="32dp"
                 android:background="@drawable/btn_level_full"
                 android:text="답 확인"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer9"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_answer9"
                 app:layout_constraintTop_toTopOf="@+id/tv_check_answer9" />
@@ -536,6 +565,7 @@
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_num10"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -548,6 +578,7 @@
                 android:text="10."
                 android:textColor="#000000"
                 android:textSize="24dp"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_check_match10"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -559,6 +590,7 @@
                 android:layout_marginStart="32dp"
                 android:background="@drawable/btn_level_full"
                 android:text="답 확인"
+                android:fontFamily="@font/dx"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_check_answer10"
                 app:layout_constraintStart_toEndOf="@+id/tv_check_answer10"
                 app:layout_constraintTop_toTopOf="@+id/tv_check_answer10" />
@@ -577,9 +609,11 @@
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_centerInParent="true"
-            android:background="@drawable/btn_level_ok"
+            android:background="@drawable/login_blueboxmdpi"
             android:text="확인"
-            android:textSize="24dp" />
+            android:textSize="30dp"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/dx"/>
     </RelativeLayout>
 
 
