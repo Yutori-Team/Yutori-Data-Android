@@ -76,7 +76,7 @@
             android:background="@drawable/box_yellow"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toTopOf="@+id/linearLayout" >
-            <Button
+            <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/classifymdpi"
