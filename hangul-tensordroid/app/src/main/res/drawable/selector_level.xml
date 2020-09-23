@@ -3,5 +3,5 @@
     <item android:state_selected="true"
         android:drawable="@drawable/btn_level_full" />
     <item android:state_selected="false"
-        android:drawable="@drawable/btn_level_empty" />
-</selector>
+        android:drawable="@drawable/btn_dialog_level" />
+    </selector>
