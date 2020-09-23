@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -157,7 +158,7 @@ public class ExamActivity extends AppCompatActivity {
             }
         });
 
-        Button classifyButton = (Button) findViewById(R.id.btn_write_classify);
+        ImageView classifyButton = (ImageView) findViewById(R.id.btn_write_classify);
         classifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
