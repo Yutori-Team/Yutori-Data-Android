@@ -67,16 +67,16 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="20dp">
+        android:layout_marginVertical="30dp">
 
         <RelativeLayout
-            android:id="@+id/btn_write_classify"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/box_yellow"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toTopOf="@+id/linearLayout" >
             <Button
+                android:id="@+id/btn_write_classify"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/classifymdpi"

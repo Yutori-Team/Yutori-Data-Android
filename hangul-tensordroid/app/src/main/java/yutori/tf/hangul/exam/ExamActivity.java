@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -122,7 +123,7 @@ public class ExamActivity extends AppCompatActivity {
             }
         });
 
-        Button nextButton = (Button) findViewById(R.id.btn_write_next);
+        ConstraintLayout nextButton = (ConstraintLayout) findViewById(R.id.btn_write_next);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,7 +143,7 @@ public class ExamActivity extends AppCompatActivity {
             }
         });
 
-        Button prevButton = (Button) findViewById(R.id.btn_write_prev);
+        ConstraintLayout prevButton = (ConstraintLayout) findViewById(R.id.btn_write_prev);
         prevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -156,7 +157,7 @@ public class ExamActivity extends AppCompatActivity {
             }
         });
 
-        RelativeLayout classifyButton = (RelativeLayout) findViewById(R.id.btn_write_classify);
+        Button classifyButton = (Button) findViewById(R.id.btn_write_classify);
         classifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
