@@ -5,512 +5,629 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="80dp"
-    android:background="#FFFEF7">
+    android:weightSum="5">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="120dp"
+        android:background="@drawable/bg_tabmdpi">
 
-        <ImageButton
+        <Button
             android:id="@+id/btn_write_speak"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/icon_sound"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="32dp"
+            android:background="@drawable/speakmdpi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_exam_out"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="32dp"
+            android:text="나기기"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="/10"
+            android:textColor="#FFFFFF"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_write_sentenceNum"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_write_sentenceNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:text="받아쓰기 번호"
-            android:textSize="30dp"
-            android:textColor="#000000"
+            android:layout_marginBottom="8dp"
+            android:text="01"
+            android:textColor="#FFFFFF"
+            android:textSize="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn_write_speak"
+            app:layout_constraintEnd_toStartOf="@+id/textView11"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btn_exam_out"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="10dp"
-            android:text="나가기"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/btn_border_black"/>
     </android.support.constraint.ConstraintLayout>
 
-    <LinearLayout
-        android:layout_width="800dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#000000"
-        android:padding="2dp"
-        android:layout_gravity="center_horizontal">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:weightSum="8">
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_8"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:weightSum="8">
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_9"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_10"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_11"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_12"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_13"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_14"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_15"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:layout_weight="1">
-                <yutori.tf.hangul.hangul.PaintView
-                    android:id="@+id/paint_write_16"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_write_drawHere16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text=""
-                    android:textColor="@color/Gray"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </RelativeLayout>
-
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginVertical="20dp">
+
+        <RelativeLayout
+            android:id="@+id/btn_write_classify"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/box_yellow"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout" >
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/classifymdpi"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout"
+            android:layout_width="800dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/box_yellow"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:weightSum="8">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:weightSum="8">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_11"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_12"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_14"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_15"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/tv_write_drawHere16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/Gray" />
+
+                    <yutori.tf.hangul.hangul.PaintView
+                        android:id="@+id/paint_write_16"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <LinearLayout
+            android:layout_width="850dp"
+            android:layout_height="match_parent"
             android:layout_marginVertical="10dp"
-            android:background="@drawable/btn_border_yellow">
+            android:background="@drawable/box_border_yellow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/dx"
                 android:text="받아쓰기: "
-                android:textSize="25dp"
-                android:layout_gravity="center_vertical"/>
+                android:textColor="#727171"
+                android:textSize="30dp" />
+
             <TextView
                 android:id="@+id/tv_write_result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="40dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/dx"
+                android:textColor="#000000"
+                android:textSize="40dp" />
         </LinearLayout>
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/btn_write_clear"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:background="@drawable/btn_border_black"
-                android:text="모두 지우기"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/btn_write_classify"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="24dp"
-                android:background="@drawable/btn_border_black"
-                android:text="변환하기"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_write_clear"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-        </android.support.constraint.ConstraintLayout>
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="3">
 
         <Button
-            android:id="@+id/btn_write_prev"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
-            android:text="이전"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_write_next"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/btn_level_full"/>
-
-        <Button
-            android:id="@+id/btn_write_next"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
-            android:text="다음"
-            android:textSize="20dp"
+            android:id="@+id/btn_write_clear"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/clearmdpi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btn_write_prev"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/btn_level_ok"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/btn_write_prev"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/login_redboxmdpi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView12"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/prevmdpi" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/dx"
+                android:text="이전 문제"
+                android:textColor="#FFFFFF"
+                android:textSize="26dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/btn_write_next"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/login_blueboxmdpi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView13"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/nextmdpi" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="다음 문제"
+                android:textColor="#FFFFFF"
+                android:textSize="26dp"
+                android:fontFamily="@font/dx"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>
-
-
 
 
 </LinearLayout>
