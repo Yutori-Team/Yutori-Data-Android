@@ -241,7 +241,8 @@ class PracticeActivity : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
-                            tv_practice_sentence.setText(number.toString() + ". " + response.body()?.get(number!!.minus(1))?.sentence.toString())
+                            tv_practice_sentenceNum.setText(number.toString())
+                            tv_practice_sentence.setText(response.body()?.get(number!!.minus(1))?.sentence.toString())
                             speakText = response.body()?.get(number!!.minus(1))?.sentence.toString()
                         }
                         400 -> {
