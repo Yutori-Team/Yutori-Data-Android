@@ -27,8 +27,9 @@
             android:id="@+id/btn_practice_out"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="32dp"
-            android:text="나기기"
+            android:background="@drawable/exitmdpi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
