@@ -42,6 +42,7 @@
             android:text="/10"
             android:textColor="#FFFFFF"
             android:textSize="40dp"
+            android:fontFamily="@font/dx"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -56,6 +57,7 @@
             android:text="01"
             android:textColor="#FFFFFF"
             android:textSize="40dp"
+            android:fontFamily="@font/dx"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView11"
             app:layout_constraintHorizontal_bias="0.5"
@@ -71,7 +73,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="880dp"
+            android:layout_width="920dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/box_yellow"
@@ -84,7 +86,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:layout_height="115dp"
                 android:weightSum="8">
 
                 <RelativeLayout
@@ -285,7 +287,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:layout_height="115dp"
                 android:weightSum="8">
 
                 <RelativeLayout
@@ -507,7 +509,7 @@
         android:layout_weight="2">
 
         <LinearLayout
-            android:layout_width="850dp"
+            android:layout_width="920dp"
             android:layout_height="match_parent"
             android:layout_marginVertical="15dp"
             android:background="@drawable/box_border_yellow"
