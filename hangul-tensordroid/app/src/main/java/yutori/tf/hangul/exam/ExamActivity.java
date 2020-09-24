@@ -70,7 +70,7 @@ public class ExamActivity extends AppCompatActivity {
         loadModel();
 
         TextView tv_page = (TextView) findViewById(R.id.tv_write_sentenceNum);
-        tv_page.setText(pageNumber.toString() + "번 문제");
+        tv_page.setText(pageNumber.toString());
     }
 
     @Override
