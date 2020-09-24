@@ -21,7 +21,7 @@ DISTORTION_COUNT = 3
 IMAGE_WIDTH = 128
 IMAGE_HEIGHT = 128
 
-array_fontsize = [48, 60]
+
 def generate_hangul_images(label_file, fonts_dir, output_dir):
     with io.open(label_file, 'r', encoding='utf-8') as f:
         labels = f.read().splitlines()
@@ -42,7 +42,9 @@ def generate_hangul_images(label_file, fonts_dir, output_dir):
             prev_count = total_count
             print('{} images generated...'.format(total_count))
 
+        array_fontsize = [45, 65]
         for size in array_fontsize:
+            
             for font in fonts:
                 total_count += 1
                 image = Image.new('L', (IMAGE_WIDTH, IMAGE_HEIGHT), color=255)

@@ -71,7 +71,7 @@ public class ExamActivity extends AppCompatActivity {
         loadModel();
 
         TextView tv_page = (TextView) findViewById(R.id.tv_write_sentenceNum);
-        tv_page.setText(pageNumber.toString() + "번 문제");
+        tv_page.setText(pageNumber.toString());
     }
 
     @Override
@@ -506,7 +506,7 @@ public class ExamActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<GetSentenceResponse>> call, Response<List<GetSentenceResponse>> response) {
                 if (response.code() == 200) {
-                    Toast.makeText(getApplicationContext(), "200", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), "200", Toast.LENGTH_SHORT).show();
                     speakText = response.body().get(pageNumber - 1).getSentence();
                 } else if (response.code() == 400) {
                     Toast.makeText(getApplicationContext(), "400", Toast.LENGTH_SHORT).show();
