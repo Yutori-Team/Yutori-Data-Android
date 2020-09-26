@@ -74,7 +74,7 @@ class MypageActivity : AppCompatActivity() {
                 response.let {
                     when (it.code()) {
                         200 -> {
-                            tv_mypage_name.setText(response.body()?.userId)
+                            tv_mypage_name.setText(response.body()?.name)
                         }
                         400 -> {
                             toast("400")
