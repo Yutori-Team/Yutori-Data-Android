@@ -108,11 +108,11 @@ class PracticeActivity : AppCompatActivity() {
             fun onInit(status: Int) {
                 if (status != TextToSpeech.ERROR) {
                     tts.setLanguage(Locale.KOREAN)
-                    tts.setPitch(0.8f)
-                    tts.setSpeechRate(0.6f)
                 }
             }
         })
+        tts.setPitch(0.8f)
+        tts.setSpeechRate(0.6f)
 
         btn_practice_speak.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
