@@ -5,9 +5,9 @@
     <application
         android:name=".network.ApplicationController"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="Yutori"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/yutori_launcher_foreground"
+        android:label="반뜻반뜻"
+        android:roundIcon="@mipmap/yutori_launcher_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SplashActivity">

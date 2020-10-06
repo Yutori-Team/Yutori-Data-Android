@@ -363,6 +363,7 @@ public class ExamActivity extends AppCompatActivity {
         if (paintView.touch) {
             resultText.append(" ");
         } else {
+            // speakText의 0번째가 5개 안에 있으면 currentTopLabels[i]를 답으로 인정하기 없으면 currentTopLabels[0]를 답으로
             resultText.append(currentTopLabels[0]);
         }
 
