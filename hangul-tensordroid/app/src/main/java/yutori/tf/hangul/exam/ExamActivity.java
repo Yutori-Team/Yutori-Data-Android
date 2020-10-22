@@ -71,7 +71,7 @@ public class ExamActivity extends AppCompatActivity {
         loadModel();
 
         TextView tv_page = (TextView) findViewById(R.id.tv_write_sentenceNum);
-        tv_page.setText(pageNumber.toString() + "번 문제");
+        tv_page.setText(pageNumber.toString());
     }
 
     @Override
@@ -342,8 +342,8 @@ public class ExamActivity extends AppCompatActivity {
         currentTopLabels = classifier.classify(pixels);
         if (paintView.touch) {
             resultText.append(" ");
-        } else { // 5개 중 답 있으면 그걸로 없으면 currentTopLabels[0]
-
+        } else {
+            // speakText의 0번째가 5개 안에 있으면 currentTopLabels[i]를 답으로 인정하기 없으면 currentTopLabels[0]를 답으로
             resultText.append(currentTopLabels[0]);
         }
 
@@ -487,7 +487,7 @@ public class ExamActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<GetSentenceResponse>> call, Response<List<GetSentenceResponse>> response) {
                 if (response.code() == 200) {
-                    Toast.makeText(getApplicationContext(), "200", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), "200", Toast.LENGTH_SHORT).show();
                     speakText = response.body().get(pageNumber - 1).getSentence();
                 } else if (response.code() == 400) {
                     Toast.makeText(getApplicationContext(), "400", Toast.LENGTH_SHORT).show();

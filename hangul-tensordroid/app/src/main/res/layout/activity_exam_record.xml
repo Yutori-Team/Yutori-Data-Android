@@ -13,25 +13,27 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@drawable/bg_tabmdpi">
+
         <Button
             android:id="@+id/btn_exam_record_back"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginStart="32dp"
             android:background="@drawable/btn_backmdpi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginStart="32dp"
+            android:fontFamily="@font/dx"
             android:text="시험 기록"
             android:textColor="#FFFFFF"
             android:textSize="40dp"
-            android:fontFamily="@font/dx"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_exam_record_back"
             app:layout_constraintTop_toTopOf="parent" />
@@ -133,7 +135,7 @@
         android:id="@+id/rv_exam_record"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.7">
+        android:layout_weight="0.9">
     </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

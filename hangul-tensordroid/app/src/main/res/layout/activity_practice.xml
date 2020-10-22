@@ -27,8 +27,9 @@
             android:id="@+id/btn_practice_out"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="32dp"
-            android:text="나기기"
+            android:background="@drawable/exitmdpi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,6 +42,7 @@
             android:text="/10"
             android:textColor="#FFFFFF"
             android:textSize="40dp"
+            android:fontFamily="@font/dx"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -55,6 +57,7 @@
             android:text="01"
             android:textColor="#FFFFFF"
             android:textSize="40dp"
+            android:fontFamily="@font/dx"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView11"
             app:layout_constraintHorizontal_bias="0.5"
@@ -67,22 +70,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp">
+
         <TextView
             android:id="@+id/tv_practice_sentence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
             android:fontFamily="@font/dx"
             android:text="받아쓰기 문장"
             android:textColor="#000000"
             android:textSize="36dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
-        android:layout_width="800dp"
+        android:layout_width="920dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/box_yellow"
@@ -90,7 +94,7 @@
         android:layout_gravity="center_horizontal">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="115dp"
             android:weightSum="8">
 
             <RelativeLayout
@@ -274,7 +278,7 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="115dp"
             android:weightSum="8">
 
             <RelativeLayout
