@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class PaintView extends View {
 
-    public static final int BITMAP_DIMENSION = 128;
+    public static final int BITMAP_DIMENSION = 100;
 
     public static final int FEED_DIMENSION = 64;
 
@@ -67,8 +67,8 @@ public class PaintView extends View {
 
     private void setupScaleMatrices() {
 
-        // View size.
-        float width = getWidth();
+        // 뷰 사이즈
+        float width = getWidth(); // 레이아웃 가로 구하기
         float height = getHeight();
         float scaleW = width / BITMAP_DIMENSION;
         float scaleH = height / BITMAP_DIMENSION;
@@ -171,6 +171,7 @@ public class PaintView extends View {
     }
 
     public float[] getPixelData() {
+        //64bit으로 리사이즈
         Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, FEED_DIMENSION,
                 FEED_DIMENSION, false);
 

@@ -221,26 +221,6 @@ public class ExamActivity extends AppCompatActivity {
         paintView16.setDrawText(drawHereText16);
     }
 
-//    @Override
-//    public boolean onTouchEvent(MotionEvent event) {
-//
-//        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-//
-//            classify();
-////                    Timer classify_timer = new Timer();
-////                    TimerTask timer_task = new TimerTask() {
-////                        @Override
-////                        public void run() {
-////
-////                            resultText.setText("으왕");
-////                        }
-////                    };
-////                    classify_timer.schedule(timer_task, 2000);
-//
-//        }
-//        return true;
-//    }
-
     private void clear() {
         paintView.reset();
         paintView2.reset();
@@ -362,7 +342,8 @@ public class ExamActivity extends AppCompatActivity {
         currentTopLabels = classifier.classify(pixels);
         if (paintView.touch) {
             resultText.append(" ");
-        } else {
+        } else { // 5개 중 답 있으면 그걸로 없으면 currentTopLabels[0]
+
             resultText.append(currentTopLabels[0]);
         }
 
